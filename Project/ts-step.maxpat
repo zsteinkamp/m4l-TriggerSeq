@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 101.0, 1642.0, 972.0 ],
+		"rect" : [ 295.0, 101.0, 1259.0, 972.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -72,7 +72,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 995.0, 440.0, 19.0, 15.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 5.0, 138.0, 19.0, 15.0 ],
+					"presentation_rect" : [ 2.0, 138.0, 32.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"activebgoncolor" : 						{
 							"expression" : "themecolor.live_value_arc"
@@ -111,16 +111,15 @@
 			}
 , 			{
 				"box" : 				{
-					"appearance" : 1,
 					"id" : "obj-18",
-					"maxclass" : "live.dial",
+					"maxclass" : "live.numbox",
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 247.0, 416.0, 25.0, 23.0 ],
+					"patching_rect" : [ 247.0, 416.0, 44.0, 15.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 2.0, 54.0, 36.0, 23.0 ],
+					"presentation_rect" : [ 2.0, 54.0, 32.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 100 ],
@@ -134,7 +133,6 @@
 
 					}
 ,
-					"showname" : 0,
 					"varname" : "VelocityAbs"
 				}
 
@@ -894,24 +892,23 @@
 			}
 , 			{
 				"box" : 				{
-					"appearance" : 1,
 					"hidden" : 1,
 					"id" : "obj-35",
-					"maxclass" : "live.dial",
+					"maxclass" : "live.numbox",
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 48.0, 416.0, 25.0, 23.0 ],
+					"patching_rect" : [ 48.0, 416.0, 44.0, 15.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 2.0, 23.0, 36.0, 23.0 ],
+					"presentation_rect" : [ 2.0, 23.0, 32.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_initial" : [ 0.0 ],
+							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
 							"parameter_longname" : "PitchRel",
 							"parameter_mmax" : 64.0,
-							"parameter_mmin" : -63.0,
+							"parameter_mmin" : -64.0,
 							"parameter_modmode" : 3,
 							"parameter_shortname" : "PitchRel",
 							"parameter_type" : 0,
@@ -920,7 +917,6 @@
 
 					}
 ,
-					"showname" : 0,
 					"varname" : "PitchRel"
 				}
 
@@ -1669,7 +1665,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 469.0, 148.0, 150.0, 18.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 0.0, 28.0, 18.0 ],
+					"presentation_rect" : [ 2.0, 1.0, 32.0, 18.0 ],
 					"text" : "1",
 					"textjustification" : 1
 				}
@@ -1731,7 +1727,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 442.0, 464.0, 76.0, 22.0 ],
+					"patching_rect" : [ 466.0, 459.0, 76.0, 22.0 ],
 					"text" : "prepend rest"
 				}
 
@@ -1743,7 +1739,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 389.0, 496.0, 99.0, 22.0 ],
+					"patching_rect" : [ 354.0, 459.0, 99.0, 22.0 ],
 					"text" : "prepend duration"
 				}
 
@@ -1755,7 +1751,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 200.0, 496.0, 96.0, 22.0 ],
+					"patching_rect" : [ 200.0, 458.0, 96.0, 22.0 ],
 					"text" : "prepend velocity"
 				}
 
@@ -1767,7 +1763,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 379.0, 646.0, 67.0, 22.0 ],
+					"patching_rect" : [ 354.0, 555.0, 67.0, 22.0 ],
 					"text" : "s ---TO_JS"
 				}
 
@@ -1779,7 +1775,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 95.0, 496.0, 81.0, 22.0 ],
+					"patching_rect" : [ 95.0, 458.0, 81.0, 22.0 ],
 					"text" : "prepend pitch"
 				}
 
@@ -1791,7 +1787,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 379.0, 584.0, 166.0, 22.0 ],
+					"patching_rect" : [ 354.0, 515.0, 166.0, 22.0 ],
 					"text" : "prepend bPatcherProperty #1"
 				}
 
@@ -1806,9 +1802,9 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 444.0, 435.0, 19.0, 15.0 ],
+					"patching_rect" : [ 468.0, 416.0, 19.0, 15.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 5.0, 118.0, 19.0, 15.0 ],
+					"presentation_rect" : [ 2.0, 118.0, 32.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_enum" : [ "Mute", "On" ],
@@ -1831,22 +1827,21 @@
 			}
 , 			{
 				"box" : 				{
-					"appearance" : 1,
 					"id" : "obj-3",
-					"maxclass" : "live.dial",
+					"maxclass" : "live.numbox",
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 389.0, 431.0, 25.0, 23.0 ],
+					"patching_rect" : [ 354.0, 416.0, 44.0, 15.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 2.0, 87.0, 36.0, 23.0 ],
+					"presentation_rect" : [ 2.0, 87.0, 32.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_initial" : [ 1 ],
+							"parameter_initial" : [ 1.0 ],
 							"parameter_initial_enable" : 1,
 							"parameter_longname" : "Duration",
-							"parameter_mmax" : 128.0,
+							"parameter_mmax" : 32.0,
 							"parameter_modmode" : 3,
 							"parameter_shortname" : "Duration",
 							"parameter_type" : 0,
@@ -1855,26 +1850,26 @@
 
 					}
 ,
-					"showname" : 0,
 					"varname" : "Duration"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"appearance" : 1,
 					"hidden" : 1,
 					"id" : "obj-2",
-					"maxclass" : "live.dial",
+					"maxclass" : "live.numbox",
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 200.0, 416.0, 25.0, 23.0 ],
+					"patching_rect" : [ 200.0, 416.0, 44.0, 15.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 2.0, 54.0, 36.0, 23.0 ],
+					"presentation_rect" : [ 2.0, 54.0, 32.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
+							"parameter_initial" : [ 0 ],
+							"parameter_initial_enable" : 1,
 							"parameter_longname" : "VelocityRel",
 							"parameter_mmax" : 64.0,
 							"parameter_mmin" : -64.0,
@@ -1886,37 +1881,34 @@
 
 					}
 ,
-					"showname" : 0,
 					"varname" : "VelocityRel"
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"appearance" : 1,
 					"id" : "obj-1",
-					"maxclass" : "live.dial",
+					"maxclass" : "live.numbox",
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 95.0, 416.0, 25.0, 23.0 ],
+					"patching_rect" : [ 95.0, 416.0, 44.0, 15.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 2.0, 23.0, 36.0, 23.0 ],
+					"presentation_rect" : [ 2.0, 23.0, 32.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 60 ],
 							"parameter_initial_enable" : 1,
 							"parameter_longname" : "Pitch",
 							"parameter_modmode" : 3,
-							"parameter_shortname" : "Pitch",
+							"parameter_shortname" : "PitchAbs",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 8
 						}
 
 					}
 ,
-					"showname" : 0,
 					"varname" : "Pitch"
 				}
 
@@ -2297,7 +2289,7 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-1" : [ "Pitch", "Pitch", 0 ],
+			"obj-1" : [ "Pitch", "PitchAbs", 0 ],
 			"obj-18" : [ "VelocityAbs", "VelocityAbs", 0 ],
 			"obj-2" : [ "VelocityRel", "VelocityRel", 0 ],
 			"obj-3" : [ "Duration", "Duration", 0 ],
