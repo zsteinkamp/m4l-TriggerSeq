@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 295.0, 101.0, 1259.0, 972.0 ],
+		"rect" : [ 295.0, 101.0, 793.0, 972.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -80,8 +80,9 @@
 ,
 						"valueof" : 						{
 							"parameter_enum" : [ "Mute", "On" ],
-							"parameter_initial" : [ 0 ],
+							"parameter_initial" : [ 0.0 ],
 							"parameter_initial_enable" : 1,
+							"parameter_invisible" : 2,
 							"parameter_longname" : "NoteOn",
 							"parameter_mmax" : 1,
 							"parameter_modmode" : 0,
@@ -124,16 +125,17 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 100 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "VelocityAbs",
+							"parameter_linknames" : 1,
+							"parameter_longname" : "#1-VelocityAbs",
 							"parameter_modmode" : 3,
-							"parameter_shortname" : "VelocityAbs",
+							"parameter_shortname" : "#1-VelocityAbs",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 0
 						}
 
 					}
 ,
-					"varname" : "VelocityAbs"
+					"varname" : "#1-VelocityAbs"
 				}
 
 			}
@@ -906,18 +908,19 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "PitchRel",
+							"parameter_linknames" : 1,
+							"parameter_longname" : "#1-PitchRel",
 							"parameter_mmax" : 64.0,
 							"parameter_mmin" : -64.0,
 							"parameter_modmode" : 3,
-							"parameter_shortname" : "PitchRel",
+							"parameter_shortname" : "#1-PitchRel",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 7
 						}
 
 					}
 ,
-					"varname" : "PitchRel"
+					"varname" : "#1-PitchRel"
 				}
 
 			}
@@ -1794,8 +1797,8 @@
 			}
 , 			{
 				"box" : 				{
-					"automation" : "Mute",
-					"automationon" : "On",
+					"automation" : "Note",
+					"automationon" : "Rest",
 					"id" : "obj-4",
 					"maxclass" : "live.text",
 					"numinlets" : 1,
@@ -1807,13 +1810,14 @@
 					"presentation_rect" : [ 2.0, 118.0, 32.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_enum" : [ "Mute", "On" ],
+							"parameter_enum" : [ "Note", "Rest" ],
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "live.text",
+							"parameter_linknames" : 1,
+							"parameter_longname" : "#1-Rest",
 							"parameter_mmax" : 1,
 							"parameter_modmode" : 0,
-							"parameter_shortname" : "live.text",
+							"parameter_shortname" : "#1-Rest",
 							"parameter_type" : 2
 						}
 
@@ -1821,7 +1825,7 @@
 ,
 					"text" : "",
 					"texton" : "",
-					"varname" : "live.text"
+					"varname" : "#1-Rest"
 				}
 
 			}
@@ -1840,17 +1844,18 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 1.0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "Duration",
+							"parameter_linknames" : 1,
+							"parameter_longname" : "#1-Duration",
 							"parameter_mmax" : 32.0,
 							"parameter_modmode" : 3,
-							"parameter_shortname" : "Duration",
+							"parameter_shortname" : "#1-Duration",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 0
 						}
 
 					}
 ,
-					"varname" : "Duration"
+					"varname" : "#1-Duration"
 				}
 
 			}
@@ -1870,18 +1875,19 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "VelocityRel",
+							"parameter_linknames" : 1,
+							"parameter_longname" : "#1-VelocityRel",
 							"parameter_mmax" : 64.0,
 							"parameter_mmin" : -64.0,
 							"parameter_modmode" : 3,
-							"parameter_shortname" : "VelocityRel",
+							"parameter_shortname" : "#1-VelocityRel",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 0
 						}
 
 					}
 ,
-					"varname" : "VelocityRel"
+					"varname" : "#1-VelocityRel"
 				}
 
 			}
@@ -1900,16 +1906,17 @@
 						"valueof" : 						{
 							"parameter_initial" : [ 60 ],
 							"parameter_initial_enable" : 1,
-							"parameter_longname" : "Pitch",
+							"parameter_linknames" : 1,
+							"parameter_longname" : "#1-PitchAbs",
 							"parameter_modmode" : 3,
-							"parameter_shortname" : "PitchAbs",
+							"parameter_shortname" : "#1-PitchAbs",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 8
 						}
 
 					}
 ,
-					"varname" : "Pitch"
+					"varname" : "#1-PitchAbs"
 				}
 
 			}
@@ -2289,12 +2296,12 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-1" : [ "Pitch", "PitchAbs", 0 ],
-			"obj-18" : [ "VelocityAbs", "VelocityAbs", 0 ],
-			"obj-2" : [ "VelocityRel", "VelocityRel", 0 ],
-			"obj-3" : [ "Duration", "Duration", 0 ],
-			"obj-35" : [ "PitchRel", "PitchRel", 0 ],
-			"obj-4" : [ "live.text", "live.text", 0 ],
+			"obj-1" : [ "#1-PitchAbs", "#1-PitchAbs", 0 ],
+			"obj-18" : [ "#1-VelocityAbs", "#1-VelocityAbs", 0 ],
+			"obj-2" : [ "#1-VelocityRel", "#1-VelocityRel", 0 ],
+			"obj-3" : [ "#1-Duration", "#1-Duration", 0 ],
+			"obj-35" : [ "#1-PitchRel", "#1-PitchRel", 0 ],
+			"obj-4" : [ "#1-Rest", "#1-Rest", 0 ],
 			"obj-45" : [ "NoteOn", "NoteOn", 0 ],
 			"parameterbanks" : 			{
 				"0" : 				{
