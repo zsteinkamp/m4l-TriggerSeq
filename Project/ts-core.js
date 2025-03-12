@@ -121,19 +121,19 @@ function bPatcherProperty(instance, property, value) {
 function sendDurations() {
     var totalSteps = 0;
     for (var i = 1; i <= NUM_STEPS; i++) {
-        if (!state.bPatcherProperties[i]) {
+        var prop = state.bPatcherProperties[i];
+        var slotLen = prop['duration'] * state.stepLen;
+        if (!prop) {
             continue;
         }
-        if (!state.bPatcherProperties[i]['rest']) {
-            outlet(0, [i, 'delay', state.stepLen]);
-            outlet(0, [
-                i,
-                'duration',
-                // shorten the note a tiny bit to prevent overlaps
-                state.bPatcherProperties[i]['duration'] * state.stepLen - 5,
-            ]);
-        }
-        totalSteps += state.bPatcherProperties[i]['duration'];
+        outlet(0, [i, 'delay', slotLen]);
+        outlet(0, [
+            i,
+            'duration',
+            // shorten the note a tiny bit to prevent overlaps
+            slotLen - 5,
+        ]);
+        totalSteps += prop['duration'];
     }
 }
 function setSwing(swingVal) {

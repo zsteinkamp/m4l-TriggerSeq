@@ -156,19 +156,19 @@ function bPatcherProperty(instance: number, property: string, value: number) {
 function sendDurations() {
   let totalSteps = 0
   for (let i = 1; i <= NUM_STEPS; i++) {
-    if (!state.bPatcherProperties[i]) {
+    const prop = state.bPatcherProperties[i]
+    const slotLen = prop['duration'] * state.stepLen
+    if (!prop) {
       continue
     }
-    if (!state.bPatcherProperties[i]['rest']) {
-      outlet(0, [i, 'delay', state.stepLen])
-      outlet(0, [
-        i,
-        'duration',
-        // shorten the note a tiny bit to prevent overlaps
-        state.bPatcherProperties[i]['duration'] * state.stepLen - 5,
-      ])
-    }
-    totalSteps += state.bPatcherProperties[i]['duration']
+    outlet(0, [i, 'delay', slotLen])
+    outlet(0, [
+      i,
+      'duration',
+      // shorten the note a tiny bit to prevent overlaps
+      slotLen - 5,
+    ])
+    totalSteps += prop['duration']
   }
 }
 
