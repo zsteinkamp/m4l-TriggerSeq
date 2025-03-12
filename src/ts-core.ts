@@ -35,6 +35,7 @@ type StateType = {
   scaleIntervals: number[]
   scaleNotes: number[]
   bPatcherProperties: BPatcherPropertyObj[]
+  bPatcherUpdateDebounce: Task
 }
 const state: StateType = {
   choke: 0,
@@ -48,6 +49,7 @@ const state: StateType = {
   scaleIntervals: [0, 2, 4, 5, 7, 9, 11], // default major
   scaleNotes: [],
   bPatcherProperties: [],
+  bPatcherUpdateDebounce: null,
 }
 
 function updateScales() {
@@ -117,6 +119,14 @@ function scaleAware(val: number) {
   updateScales()
 }
 
+function debounceUpdate() {
+  if (state.bPatcherUpdateDebounce) {
+    state.bPatcherUpdateDebounce.cancel()
+  }
+  state.bPatcherUpdateDebounce = new Task(sendDurations)
+  state.bPatcherUpdateDebounce.schedule(50)
+}
+
 function bPatcherProperty(instance: number, property: string, value: number) {
   const getBPatcherPropertyObj = (): BPatcherPropertyObj => {
     return {
@@ -140,6 +150,7 @@ function bPatcherProperty(instance: number, property: string, value: number) {
   //    ' ' +
   //    JSON.stringify(state.bPatcherProperties[instance])
   //)
+  debounceUpdate()
 }
 
 function sendDurations() {
@@ -149,10 +160,11 @@ function sendDurations() {
       continue
     }
     if (!state.bPatcherProperties[i]['rest']) {
-      outlet(0, [i, 'delay', totalSteps * state.stepLen])
+      outlet(0, [i, 'delay', state.stepLen])
       outlet(0, [
         i,
         'duration',
+        // shorten the note a tiny bit to prevent overlaps
         state.bPatcherProperties[i]['duration'] * state.stepLen - 5,
       ])
     }
@@ -213,6 +225,8 @@ function noteOn(inPitch: number, inVelocity: number) {
     outlet(0, [i, 'velocity', velocity])
     outlet(0, [i, 'pitch', pitch])
   }
+  // play the first step
+  outlet(0, [1, 'play'])
 }
 
 post('Reloaded ts-core\n')

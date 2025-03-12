@@ -24,6 +24,7 @@ var state = {
     scaleIntervals: [0, 2, 4, 5, 7, 9, 11],
     scaleNotes: [],
     bPatcherProperties: [],
+    bPatcherUpdateDebounce: null,
 };
 function updateScales() {
     state.scaleNotes = [];
@@ -86,6 +87,13 @@ function scaleAware(val) {
     state.scaleAware = +val === 1 ? 1 : 0;
     updateScales();
 }
+function debounceUpdate() {
+    if (state.bPatcherUpdateDebounce) {
+        state.bPatcherUpdateDebounce.cancel();
+    }
+    state.bPatcherUpdateDebounce = new Task(sendDurations);
+    state.bPatcherUpdateDebounce.schedule(50);
+}
 function bPatcherProperty(instance, property, value) {
     var getBPatcherPropertyObj = function () {
         return {
@@ -108,6 +116,7 @@ function bPatcherProperty(instance, property, value) {
     //    ' ' +
     //    JSON.stringify(state.bPatcherProperties[instance])
     //)
+    debounceUpdate();
 }
 function sendDurations() {
     var totalSteps = 0;
@@ -116,10 +125,11 @@ function sendDurations() {
             continue;
         }
         if (!state.bPatcherProperties[i]['rest']) {
-            outlet(0, [i, 'delay', totalSteps * state.stepLen]);
+            outlet(0, [i, 'delay', state.stepLen]);
             outlet(0, [
                 i,
                 'duration',
+                // shorten the note a tiny bit to prevent overlaps
                 state.bPatcherProperties[i]['duration'] * state.stepLen - 5,
             ]);
         }
@@ -176,6 +186,8 @@ function noteOn(inPitch, inVelocity) {
         outlet(0, [i, 'velocity', velocity]);
         outlet(0, [i, 'pitch', pitch]);
     }
+    // play the first step
+    outlet(0, [1, 'play']);
 }
 post('Reloaded ts-core\n');
 // NOTE: This section must appear in any .ts file that is directuly used by a
