@@ -735,17 +735,6 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-38",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 701.0, 486.0, 111.0, 22.0 ],
-					"text" : "print #1-NOTEOUT"
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"color" : [ 0.556862745098039, 0.266666666666667, 0.125490196078431, 1.0 ],
 					"id" : "obj-31",
 					"maxclass" : "newobj",
@@ -1994,15 +1983,6 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-33", 0 ],
-					"order" : 0,
-					"source" : [ "obj-19", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-38", 0 ],
-					"order" : 1,
 					"source" : [ "obj-19", 0 ]
 				}
 
