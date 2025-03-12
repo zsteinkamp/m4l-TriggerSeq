@@ -41,6 +41,67 @@
 		"integercoordinates" : 1,
 		"boxes" : [ 			{
 				"box" : 				{
+					"hidden" : 1,
+					"id" : "obj-35",
+					"maxclass" : "live.dial",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "float" ],
+					"parameter_enable" : 1,
+					"patching_rect" : [ 48.0, 405.0, 27.0, 37.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 0.0, 2.0, 32.0, 37.0 ],
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_initial" : [ 0.0 ],
+							"parameter_initial_enable" : 1,
+							"parameter_longname" : "#1-PitchRel",
+							"parameter_mmax" : 64.0,
+							"parameter_mmin" : -64.0,
+							"parameter_modmode" : 3,
+							"parameter_shortname" : "#1-PitchRel",
+							"parameter_type" : 0,
+							"parameter_unitstyle" : 7
+						}
+
+					}
+,
+					"showname" : 0,
+					"varname" : "#1-PitchRel"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-1",
+					"maxclass" : "live.dial",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "float" ],
+					"parameter_enable" : 1,
+					"patching_rect" : [ 95.0, 405.0, 27.0, 37.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 0.0, 2.0, 32.0, 37.0 ],
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_initial" : [ 60 ],
+							"parameter_initial_enable" : 1,
+							"parameter_longname" : "#1-PitchAbs",
+							"parameter_modmode" : 3,
+							"parameter_shortname" : "#1-PitchAbs",
+							"parameter_type" : 0,
+							"parameter_unitstyle" : 8
+						}
+
+					}
+,
+					"showname" : 0,
+					"varname" : "#1-PitchAbs"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-61",
 					"maxclass" : "newobj",
 					"numinlets" : 2,
@@ -270,7 +331,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 247.0, 405.0, 27.0, 37.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 46.0, 32.0, 37.0 ],
+					"presentation_rect" : [ 0.0, 45.0, 32.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 100 ],
@@ -1016,38 +1077,6 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1165.0, 308.0, 30.0, 22.0 ],
 					"text" : "63"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"hidden" : 1,
-					"id" : "obj-35",
-					"maxclass" : "live.dial",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "float" ],
-					"parameter_enable" : 1,
-					"patching_rect" : [ 48.0, 405.0, 27.0, 37.0 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 4.0, 32.0, 37.0 ],
-					"saved_attribute_attributes" : 					{
-						"valueof" : 						{
-							"parameter_initial" : [ 0.0 ],
-							"parameter_initial_enable" : 1,
-							"parameter_longname" : "#1-PitchRel",
-							"parameter_mmax" : 64.0,
-							"parameter_mmin" : -64.0,
-							"parameter_modmode" : 3,
-							"parameter_shortname" : "#1-PitchRel",
-							"parameter_type" : 0,
-							"parameter_unitstyle" : 7
-						}
-
-					}
-,
-					"showname" : 0,
-					"varname" : "#1-PitchRel"
 				}
 
 			}
@@ -1934,7 +1963,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 468.0, 416.0, 19.0, 15.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 1.0, 129.0, 30.0, 15.0 ],
+					"presentation_rect" : [ 1.0, 131.0, 30.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_enum" : [ "Note", "Rest" ],
@@ -1966,7 +1995,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 354.0, 405.0, 27.0, 37.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 87.0, 32.0, 37.0 ],
+					"presentation_rect" : [ 0.0, 88.0, 32.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_initial" : [ 1.0 ],
@@ -1997,7 +2026,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 200.0, 405.0, 27.0, 37.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 46.0, 32.0, 37.0 ],
+					"presentation_rect" : [ 0.0, 45.0, 32.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_longname" : "#1-VelocityRel",
@@ -2013,35 +2042,6 @@
 ,
 					"showname" : 0,
 					"varname" : "#1-VelocityRel"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-1",
-					"maxclass" : "live.dial",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "float" ],
-					"parameter_enable" : 1,
-					"patching_rect" : [ 95.0, 405.0, 27.0, 37.0 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 4.0, 32.0, 37.0 ],
-					"saved_attribute_attributes" : 					{
-						"valueof" : 						{
-							"parameter_initial" : [ 60 ],
-							"parameter_initial_enable" : 1,
-							"parameter_longname" : "#1-PitchAbs",
-							"parameter_modmode" : 3,
-							"parameter_shortname" : "#1-PitchAbs",
-							"parameter_type" : 0,
-							"parameter_unitstyle" : 8
-						}
-
-					}
-,
-					"showname" : 0,
-					"varname" : "#1-PitchAbs"
 				}
 
 			}
