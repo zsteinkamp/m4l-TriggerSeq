@@ -28,6 +28,7 @@ var state = {
     bPatcherUpdateDebounce: null,
 };
 function updateScales() {
+    //log('UPDATE_SCALES' + JSON.stringify(state.scaleIntervals))
     state.scaleNotes = [];
     var root_note = state.rootNote - 12;
     var note = root_note;
@@ -38,12 +39,13 @@ function updateScales() {
             note = root_note + interval;
             if (note >= 0 && note <= 127) {
                 state.scaleNotes.push(note);
+                //log('PUSH NOTE ' + JSON.stringify({ note, root_note, interval }))
             }
         }
         root_note += 12;
         note = root_note;
     }
-    //post('SCALE ' + JSON.stringify(scaleMeta.notes) + '\n')
+    //log('SCALE_NOTES ' + JSON.stringify(state.scaleNotes))
 }
 function quantizeNote(noteNum) {
     if (!state.scaleAware) {
@@ -62,22 +64,32 @@ function noteDelta(baseNote, offset) {
     if (!state.scaleAware) {
         return Math.max(0, Math.min(127, baseNote + offset));
     }
-    baseNote = quantizeNote(baseNote);
-    var baseNoteIdx = state.scaleNotes.indexOf(baseNote);
+    var qBaseNote = quantizeNote(baseNote);
+    var baseNoteIdx = state.scaleNotes.indexOf(qBaseNote);
     if (baseNoteIdx === -1) {
         // should not happen
-        log('Error: baseNoteIdx not found for ' + baseNote);
+        log('Error: baseNoteIdx not found for ' + qBaseNote);
         return baseNote;
     }
+    //log(
+    //  'NOTE_DELTA ' +
+    //    JSON.stringify({
+    //      baseNote,
+    //      baseNoteIdx,
+    //      offset,
+    //      qBaseNote,
+    //      ret: state.scaleNotes[baseNoteIdx + offset],
+    //    })
+    //)
     return Math.max(0, Math.min(127, state.scaleNotes[baseNoteIdx + offset]));
 }
 function scaleIntervals() {
-    var intervals = arrayfromargs(arguments);
+    var intervals = [];
     for (var i = 0; i < arguments.length; i++) {
         intervals.push(+arguments[i]);
     }
     state.scaleIntervals = intervals;
-    //post('INTS ' + state.scaleIntervals.join(',') + '\n')
+    //log('INTS ' + state.scaleIntervals.join(','))
     updateScales();
 }
 function rootNote(val) {
@@ -186,9 +198,11 @@ function noteOn(inPitch, inVelocity) {
         else {
             velocity = state.bPatcherProperties[i]['velocity'];
         }
+        //log('PITCH BEFORE ' + JSON.stringify({ inPitch, pitch }))
         if (state.scaleAware) {
             pitch = quantizeNote(pitch);
         }
+        //log('PITCH AFTER ' + JSON.stringify({ inPitch, pitch }))
         outlet(0, [i, 'velocity', velocity]);
         outlet(0, [i, 'pitch', pitch]);
     }
