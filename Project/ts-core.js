@@ -122,7 +122,8 @@ function sendDurations() {
     var totalSteps = 0;
     for (var i = 1; i <= NUM_STEPS; i++) {
         var prop = state.bPatcherProperties[i];
-        var slotLen = prop['duration'] * state.stepLen;
+        var swingAdj = ((totalSteps % 2 === 0 ? +state.swing : -state.swing) / 2) * state.stepLen;
+        var slotLen = prop['duration'] * state.stepLen + swingAdj;
         if (!prop) {
             continue;
         }
