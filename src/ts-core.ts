@@ -25,6 +25,7 @@ type BPatcherPropertyObj = {
 
 type StateType = {
   choke: 0 | 1
+  noteLen: number
   pitchMode: number
   velocityMode: number
   patternLen: number
@@ -39,6 +40,7 @@ type StateType = {
 }
 const state: StateType = {
   choke: 0,
+  noteLen: 1,
   pitchMode: 0,
   velocityMode: 0,
   patternLen: 16,
@@ -168,12 +170,16 @@ function sendDurations() {
       i,
       'duration',
       // shorten the note a tiny bit to prevent overlaps
-      slotLen - 5,
+      slotLen * state.noteLen - 5,
     ])
     totalSteps += prop['duration']
   }
 }
 
+function setNoteLen(len: number) {
+  state.noteLen = +len / 100.0
+  sendDurations()
+}
 function setSwing(swingVal: number) {
   state.swing = +swingVal
   sendDurations()

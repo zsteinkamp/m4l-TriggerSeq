@@ -41,7 +41,9 @@
 		"integercoordinates" : 1,
 		"boxes" : [ 			{
 				"box" : 				{
+					"annotation" : "Number of semitones or scale degrees to adjust the pitch of this step.",
 					"hidden" : 1,
+					"hint" : "Note Offset",
 					"id" : "obj-35",
 					"maxclass" : "live.dial",
 					"numinlets" : 1,
@@ -53,6 +55,7 @@
 					"presentation_rect" : [ 0.0, 4.0, 32.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
+							"parameter_info" : "Number of semitones or scale degrees to adjust the pitch of this step.",
 							"parameter_initial" : [ 0.0 ],
 							"parameter_initial_enable" : 1,
 							"parameter_longname" : "#1-PitchRel",
@@ -61,7 +64,7 @@
 							"parameter_modmode" : 3,
 							"parameter_shortname" : "#1-PitchRel",
 							"parameter_type" : 0,
-							"parameter_unitstyle" : 7
+							"parameter_unitstyle" : 0
 						}
 
 					}
@@ -73,6 +76,8 @@
 			}
 , 			{
 				"box" : 				{
+					"annotation" : "Note to play in this step.",
+					"annotation_name" : "Note",
 					"id" : "obj-1",
 					"maxclass" : "live.dial",
 					"numinlets" : 1,
@@ -84,6 +89,8 @@
 					"presentation_rect" : [ 0.0, 4.0, 32.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
+							"parameter_annotation_name" : "Note",
+							"parameter_info" : "Note to play in this step.",
 							"parameter_initial" : [ 60 ],
 							"parameter_initial_enable" : 1,
 							"parameter_longname" : "#1-PitchAbs",
@@ -115,24 +122,26 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-60",
+					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1258.0, 586.0, 134.0, 22.0 ],
-					"text" : "bordercolor \"00000000\""
+					"patching_rect" : [ 1245.0, 620.0, 120.0, 35.0 ],
+					"text" : "bgcolor \"00000000\", textcolor \"Text / Icon\""
 				}
 
 			}
 , 			{
 				"box" : 				{
 					"id" : "obj-59",
+					"linecount" : 3,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1236.0, 544.0, 146.0, 22.0 ],
-					"text" : "bordercolor \"LCD Handle\""
+					"patching_rect" : [ 1236.0, 544.0, 132.0, 49.0 ],
+					"text" : "bgcolor \"LCD Handle\", textcolor \"LCD Background\""
 				}
 
 			}
@@ -292,25 +301,6 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-46",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 1242.0, 779.0, 150.0, 20.0 ],
-					"saved_attribute_attributes" : 					{
-						"textcolor" : 						{
-							"expression" : "themecolor.live_freeze_color"
-						}
-
-					}
-,
-					"text" : "note-on indicator",
-					"textcolor" : [ 0.262745098039216, 0.568627450980392, 0.901960784313726, 1.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-39",
 					"maxclass" : "newobj",
 					"numinlets" : 2,
@@ -323,6 +313,8 @@
 			}
 , 			{
 				"box" : 				{
+					"annotation" : "Velocity to use for this step.",
+					"annotation_name" : "Velocity",
 					"id" : "obj-18",
 					"maxclass" : "live.dial",
 					"numinlets" : 1,
@@ -334,6 +326,8 @@
 					"presentation_rect" : [ 0.0, 47.0, 32.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
+							"parameter_annotation_name" : "Velocity",
+							"parameter_info" : "Velocity to use for this step.",
 							"parameter_initial" : [ 100 ],
 							"parameter_initial_enable" : 1,
 							"parameter_longname" : "#1-VelocityAbs",
@@ -1799,7 +1793,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 469.0, 70.0, 65.0, 22.0 ],
+					"patching_rect" : [ 1067.0, 659.0, 65.0, 22.0 ],
 					"text" : "r #0-STEP"
 				}
 
@@ -1811,7 +1805,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 469.0, 111.0, 72.0, 22.0 ],
+					"patching_rect" : [ 1067.0, 700.0, 72.0, 22.0 ],
 					"text" : "prepend set"
 				}
 
@@ -1822,7 +1816,7 @@
 					"maxclass" : "live.comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 469.0, 148.0, 150.0, 18.0 ],
+					"patching_rect" : [ 1067.0, 737.0, 150.0, 18.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 0.0, 150.0, 31.0, 18.0 ],
 					"text" : "1",
@@ -1953,6 +1947,8 @@
 			}
 , 			{
 				"box" : 				{
+					"annotation" : "Indicates this step is a rest.",
+					"annotation_name" : "Rest",
 					"automation" : "Note",
 					"automationon" : "Rest",
 					"id" : "obj-4",
@@ -1966,7 +1962,9 @@
 					"presentation_rect" : [ 1.0, 130.0, 30.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
+							"parameter_annotation_name" : "Rest",
 							"parameter_enum" : [ "Note", "Rest" ],
+							"parameter_info" : "Indicates this step is a rest.",
 							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
 							"parameter_linknames" : 1,
@@ -1987,6 +1985,8 @@
 			}
 , 			{
 				"box" : 				{
+					"annotation" : "Multiple of the base length specified to the left.",
+					"annotation_name" : "Duration",
 					"id" : "obj-3",
 					"maxclass" : "live.dial",
 					"numinlets" : 1,
@@ -1998,6 +1998,8 @@
 					"presentation_rect" : [ 0.0, 87.0, 32.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
+							"parameter_annotation_name" : "Duration",
+							"parameter_info" : "Multiple of the base length specified to the left.",
 							"parameter_initial" : [ 1.0 ],
 							"parameter_initial_enable" : 1,
 							"parameter_longname" : "#1-Duration",
@@ -2017,6 +2019,8 @@
 			}
 , 			{
 				"box" : 				{
+					"annotation" : "Amount to add or subtract from the original note velocity for this step.",
+					"annotation_name" : "Velocity Offset",
 					"hidden" : 1,
 					"id" : "obj-2",
 					"maxclass" : "live.dial",
@@ -2029,6 +2033,8 @@
 					"presentation_rect" : [ 0.0, 47.0, 32.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
+							"parameter_annotation_name" : "Velocity Offset",
+							"parameter_info" : "Amount to add or subtract from the original note velocity for this step.",
 							"parameter_longname" : "#1-VelocityRel",
 							"parameter_mmax" : 64.0,
 							"parameter_mmin" : -64.0,
@@ -2042,32 +2048,6 @@
 ,
 					"showname" : 0,
 					"varname" : "#1-VelocityRel"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"angle" : 270.0,
-					"bgcolor" : [ 0.376470588235294, 0.384313725490196, 0.4, 0.0 ],
-					"border" : 1,
-					"bordercolor" : [ 0.0, 0.0, 0.0, 0.0 ],
-					"id" : "obj-58",
-					"maxclass" : "panel",
-					"mode" : 0,
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 1236.0, 640.0, 128.0, 128.0 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 1.0, 150.0, 30.0, 18.0 ],
-					"proportion" : 0.39,
-					"rounded" : 0,
-					"saved_attribute_attributes" : 					{
-						"bordercolor" : 						{
-							"expression" : "themecolor.00000000"
-						}
-
-					}
-
 				}
 
 			}
@@ -2435,7 +2415,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-58", 0 ],
+					"destination" : [ "obj-21", 0 ],
 					"source" : [ "obj-59", 0 ]
 				}
 
@@ -2449,7 +2429,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-58", 0 ],
+					"destination" : [ "obj-21", 0 ],
 					"source" : [ "obj-60", 0 ]
 				}
 
