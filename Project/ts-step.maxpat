@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 179.0, 101.0, 1026.0, 972.0 ],
+		"rect" : [ 1067.0, 517.0, 1026.0, 972.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -332,7 +332,7 @@
 							"parameter_initial_enable" : 1,
 							"parameter_longname" : "#1-VelocityAbs",
 							"parameter_modmode" : 3,
-							"parameter_shortname" : "live.dial",
+							"parameter_shortname" : "#1-VelocityAbs",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 0
 						}
@@ -2005,7 +2005,7 @@
 							"parameter_longname" : "#1-Duration",
 							"parameter_mmax" : 32.0,
 							"parameter_modmode" : 3,
-							"parameter_shortname" : "live.dial",
+							"parameter_shortname" : "#1-Duration",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 0
 						}
@@ -2528,9 +2528,9 @@
  ],
 		"parameters" : 		{
 			"obj-1" : [ "#1-PitchAbs", "#1-PitchAbs", 0 ],
-			"obj-18" : [ "#1-VelocityAbs", "live.dial", 0 ],
+			"obj-18" : [ "#1-VelocityAbs", "#1-VelocityAbs", 0 ],
 			"obj-2" : [ "#1-VelocityRel", "#1-VelocityRel", 0 ],
-			"obj-3" : [ "#1-Duration", "live.dial", 0 ],
+			"obj-3" : [ "#1-Duration", "#1-Duration", 0 ],
 			"obj-35" : [ "#1-PitchRel", "#1-PitchRel", 0 ],
 			"obj-4" : [ "#1-Rest", "#1-Rest", 0 ],
 			"parameterbanks" : 			{
