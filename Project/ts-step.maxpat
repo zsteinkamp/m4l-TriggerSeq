@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1067.0, 517.0, 1541.0, 834.0 ],
+		"rect" : [ 1232.0, 736.0, 1541.0, 834.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -67,8 +67,8 @@
 , 			{
 				"box" : 				{
 					"annotation" : "Number of semitones or scale degrees to adjust the pitch of this step.",
-					"hidden" : 1,
-					"hint" : "Note Offset",
+					"annotation_name" : "Note Offset",
+					"hint" : "",
 					"id" : "obj-35",
 					"maxclass" : "live.dial",
 					"numinlets" : 1,
@@ -77,9 +77,10 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 48.0, 405.0, 27.0, 37.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 4.0, 32.0, 37.0 ],
+					"presentation_rect" : [ 0.0, 32.0, 32.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
+							"parameter_annotation_name" : "Note Offset",
 							"parameter_info" : "Number of semitones or scale degrees to adjust the pitch of this step.",
 							"parameter_initial" : [ 0.0 ],
 							"parameter_initial_enable" : 1,
@@ -103,6 +104,7 @@
 				"box" : 				{
 					"annotation" : "Note to play in this step.",
 					"annotation_name" : "Note",
+					"hidden" : 1,
 					"id" : "obj-1",
 					"maxclass" : "live.dial",
 					"numinlets" : 1,
@@ -111,7 +113,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 95.0, 405.0, 27.0, 37.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 4.0, 32.0, 37.0 ],
+					"presentation_rect" : [ 0.0, 32.0, 32.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_annotation_name" : "Note",
@@ -340,6 +342,7 @@
 				"box" : 				{
 					"annotation" : "Velocity to use for this step.",
 					"annotation_name" : "Velocity",
+					"hidden" : 1,
 					"id" : "obj-18",
 					"maxclass" : "live.dial",
 					"numinlets" : 1,
@@ -348,7 +351,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 247.0, 405.0, 27.0, 37.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 47.0, 32.0, 37.0 ],
+					"presentation_rect" : [ 0.0, 71.0, 32.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_annotation_name" : "Velocity",
@@ -1843,7 +1846,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 1042.0, 666.0, 150.0, 18.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 150.0, 31.0, 18.0 ],
+					"presentation_rect" : [ 0.0, 7.0, 31.0, 18.0 ],
 					"text" : "1",
 					"textjustification" : 1
 				}
@@ -1984,7 +1987,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 468.0, 416.0, 19.0, 15.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 1.0, 130.0, 30.0, 15.0 ],
+					"presentation_rect" : [ 1.0, 150.0, 30.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_annotation_name" : "Rest",
@@ -2020,7 +2023,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 354.0, 405.0, 27.0, 37.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 87.0, 32.0, 37.0 ],
+					"presentation_rect" : [ 0.0, 109.0, 32.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_annotation_name" : "Duration",
@@ -2046,7 +2049,6 @@
 				"box" : 				{
 					"annotation" : "Amount to add or subtract from the original note velocity for this step.",
 					"annotation_name" : "Velocity Offset",
-					"hidden" : 1,
 					"id" : "obj-2",
 					"maxclass" : "live.dial",
 					"numinlets" : 1,
@@ -2055,7 +2057,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 200.0, 405.0, 27.0, 37.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 47.0, 32.0, 37.0 ],
+					"presentation_rect" : [ 0.0, 71.0, 32.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_annotation_name" : "Velocity Offset",
