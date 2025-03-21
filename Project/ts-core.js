@@ -17,13 +17,9 @@ var config = {
 var utils_1 = require("./utils");
 var log = (0, utils_1.logFactory)(config);
 var NUM_STEPS = 16;
-var PITCH_MODE_ABSOLUTE = 1;
-var VELOCITY_MODE_RELATIVE = 0;
 var state = {
     choke: 0,
     noteLen: 1,
-    pitchMode: 0,
-    velocityMode: 0,
     patternLen: 16,
     swing: 0.5,
     stepLen: 0.5,
@@ -61,42 +57,6 @@ function updateScales() {
     }
     //log('SCALE_NOTES ' + JSON.stringify(state.scaleNotes))
     outlet(0, __spreadArray(['noteArr'], state.scaleNotes, true));
-}
-function quantizeNote(noteNum) {
-    if (!state.scaleAware) {
-        return noteNum;
-    }
-    var i = 12;
-    for (var i = 0; i < 12; i++) {
-        var tryNote = noteNum - i;
-        if (state.scaleNotes.indexOf(tryNote) > -1) {
-            //post('QUANTIZE: ' + noteNum + ' => ' + tryNote + '\n');
-            return tryNote;
-        }
-    }
-}
-function noteDelta(baseNote, offset) {
-    if (!state.scaleAware) {
-        return Math.max(0, Math.min(127, baseNote + offset));
-    }
-    var qBaseNote = quantizeNote(baseNote);
-    var baseNoteIdx = state.scaleNotes.indexOf(qBaseNote);
-    if (baseNoteIdx === -1) {
-        // should not happen
-        log('Error: baseNoteIdx not found for ' + qBaseNote);
-        return baseNote;
-    }
-    //log(
-    //  'NOTE_DELTA ' +
-    //    JSON.stringify({
-    //      baseNote,
-    //      baseNoteIdx,
-    //      offset,
-    //      qBaseNote,
-    //      ret: state.scaleNotes[baseNoteIdx + offset],
-    //    })
-    //)
-    return Math.max(0, Math.min(127, state.scaleNotes[baseNoteIdx + offset]));
 }
 function scaleIntervals() {
     var intervals = [];
@@ -182,47 +142,6 @@ function setChoke(val) {
 }
 function setPatternLen(val) {
     state.patternLen = +val;
-}
-function setPitchMode(mode) {
-    state.pitchMode = +mode === 1 ? 1 : 0;
-}
-function setVelocityMode(mode) {
-    state.velocityMode = +mode === 1 ? 1 : 0;
-}
-function noteOn(inPitch, inVelocity) {
-    if (+inVelocity === 0) {
-        return;
-    }
-    if (state.choke) {
-        for (var i = 1; i <= NUM_STEPS; i++) {
-            outlet(0, [i, 'stop']);
-        }
-    }
-    for (var i = 1; i <= state.patternLen; i++) {
-        var pitch = inPitch;
-        var velocity = inVelocity;
-        if (state.pitchMode === PITCH_MODE_ABSOLUTE) {
-            pitch = state.bPatcherProperties[i]['pitch'];
-        }
-        else {
-            pitch = noteDelta(pitch, state.bPatcherProperties[i]['pitch']);
-        }
-        if (state.velocityMode === VELOCITY_MODE_RELATIVE) {
-            velocity = Math.max(0, Math.min(127, velocity + state.bPatcherProperties[i]['velocity']));
-        }
-        else {
-            velocity = state.bPatcherProperties[i]['velocity'];
-        }
-        //log('PITCH BEFORE ' + JSON.stringify({ inPitch, pitch }))
-        if (state.scaleAware) {
-            pitch = quantizeNote(pitch);
-        }
-        //log('PITCH AFTER ' + JSON.stringify({ inPitch, pitch }))
-        outlet(0, [i, 'velocity', velocity]);
-        outlet(0, [i, 'pitch', pitch]);
-    }
-    // play the first step
-    outlet(0, [1, 'play']);
 }
 post('Reloaded ts-core\n');
 // NOTE: This section must appear in any .ts file that is directuly used by a
