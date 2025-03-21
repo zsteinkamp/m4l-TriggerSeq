@@ -55,8 +55,10 @@ function updateScales() {
             note = root_note;
         }
     }
+    var noteObj = {};
     //log('SCALE_NOTES ' + JSON.stringify(state.scaleNotes))
     outlet(0, __spreadArray(['noteArr'], state.scaleNotes, true));
+    outlet(0, ['noteObj', noteObj]);
 }
 function scaleIntervals() {
     var intervals = [];

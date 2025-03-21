@@ -72,8 +72,12 @@ function updateScales() {
       note = root_note
     }
   }
+
+  const noteObj = {}
+
   //log('SCALE_NOTES ' + JSON.stringify(state.scaleNotes))
   outlet(0, ['noteArr', ...state.scaleNotes])
+  outlet(0, ['noteObj', noteObj])
 }
 
 function scaleIntervals() {
