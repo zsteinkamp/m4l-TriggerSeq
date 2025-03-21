@@ -88,7 +88,6 @@ function bPatcherProperty(instance, property, value) {
             pitch: 0,
             velocity: 0,
             duration: 0,
-            rest: 0,
         };
     };
     if (!state.bPatcherProperties[instance]) {
@@ -109,11 +108,11 @@ function sendDurations() {
     var totalSteps = 0;
     for (var i = 1; i <= NUM_STEPS; i++) {
         var prop = state.bPatcherProperties[i];
-        var swingAdj = ((totalSteps % 2 === 0 ? +state.swing : -state.swing) / 2) * state.stepLen;
-        var slotLen = prop['duration'] * state.stepLen + swingAdj;
         if (!prop) {
             continue;
         }
+        var swingAdj = ((totalSteps % 2 === 0 ? +state.swing : -state.swing) / 2) * state.stepLen;
+        var slotLen = prop['duration'] * state.stepLen + swingAdj;
         outlet(OUTLET_MSGS, [i, 'delay', slotLen]);
         outlet(OUTLET_MSGS, [
             i,

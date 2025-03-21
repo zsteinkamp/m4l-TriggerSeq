@@ -19,7 +19,6 @@ type BPatcherPropertyObj = {
   pitch: number
   velocity: number
   duration: number
-  rest: number
 }
 
 type StateType = {
@@ -120,7 +119,6 @@ function bPatcherProperty(instance: number, property: string, value: number) {
       pitch: 0,
       velocity: 0,
       duration: 0,
-      rest: 0,
     }
   }
 
@@ -143,12 +141,12 @@ function sendDurations() {
   let totalSteps = 0
   for (let i = 1; i <= NUM_STEPS; i++) {
     const prop = state.bPatcherProperties[i]
-    const swingAdj =
-      ((totalSteps % 2 === 0 ? +state.swing : -state.swing) / 2) * state.stepLen
-    const slotLen = prop['duration'] * state.stepLen + swingAdj
     if (!prop) {
       continue
     }
+    const swingAdj =
+      ((totalSteps % 2 === 0 ? +state.swing : -state.swing) / 2) * state.stepLen
+    const slotLen = prop['duration'] * state.stepLen + swingAdj
     outlet(OUTLET_MSGS, [i, 'delay', slotLen])
     outlet(OUTLET_MSGS, [
       i,
