@@ -1,6 +1,9 @@
 inlets = 1
-outlets = 1
+outlets = 2
 autowatch = 1
+
+const OUTLET_MSGS = 0
+const OUTLET_DICT = 1
 
 const config = {
   outputLogs: true,
@@ -73,11 +76,17 @@ function updateScales() {
     }
   }
 
-  const noteObj = {}
+  outlet(OUTLET_DICT, 'clear')
+  let lastFound = 0 as number
+  for (let i = 0; i < 128; i++) {
+    if (state.scaleNotes.indexOf(i) > -1) {
+      lastFound = i
+    }
+    outlet(OUTLET_DICT, ['append', i.toString(), lastFound])
+  }
 
   //log('SCALE_NOTES ' + JSON.stringify(state.scaleNotes))
-  outlet(0, ['noteArr', ...state.scaleNotes])
-  outlet(0, ['noteObj', noteObj])
+  //outlet(OUTLET_MSGS, ['noteArr', ...state.scaleNotes])
 }
 
 function scaleIntervals() {
@@ -143,8 +152,8 @@ function sendDurations() {
     if (!prop) {
       continue
     }
-    outlet(0, [i, 'delay', slotLen])
-    outlet(0, [
+    outlet(OUTLET_MSGS, [i, 'delay', slotLen])
+    outlet(OUTLET_MSGS, [
       i,
       'duration',
       // shorten the note a tiny bit to prevent overlaps

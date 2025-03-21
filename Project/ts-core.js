@@ -1,16 +1,9 @@
 "use strict";
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
 inlets = 1;
-outlets = 1;
+outlets = 2;
 autowatch = 1;
+var OUTLET_MSGS = 0;
+var OUTLET_DICT = 1;
 var config = {
     outputLogs: true,
 };
@@ -55,10 +48,16 @@ function updateScales() {
             note = root_note;
         }
     }
-    var noteObj = {};
+    outlet(OUTLET_DICT, 'clear');
+    var lastFound = 0;
+    for (var i = 0; i < 128; i++) {
+        if (state.scaleNotes.indexOf(i) > -1) {
+            lastFound = i;
+        }
+        outlet(OUTLET_DICT, ['append', i.toString(), lastFound]);
+    }
     //log('SCALE_NOTES ' + JSON.stringify(state.scaleNotes))
-    outlet(0, __spreadArray(['noteArr'], state.scaleNotes, true));
-    outlet(0, ['noteObj', noteObj]);
+    //outlet(OUTLET_MSGS, ['noteArr', ...state.scaleNotes])
 }
 function scaleIntervals() {
     var intervals = [];
@@ -117,8 +116,8 @@ function sendDurations() {
         if (!prop) {
             continue;
         }
-        outlet(0, [i, 'delay', slotLen]);
-        outlet(0, [
+        outlet(OUTLET_MSGS, [i, 'delay', slotLen]);
+        outlet(OUTLET_MSGS, [
             i,
             'duration',
             // shorten the note a tiny bit to prevent overlaps
