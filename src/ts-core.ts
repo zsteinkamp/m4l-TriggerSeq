@@ -11,8 +11,6 @@ const log = logFactory(config)
 
 const NUM_STEPS = 16
 const PITCH_MODE_ABSOLUTE = 1
-const PITCH_MODE_RELATIVE = 0
-const VELOCITY_MODE_ABSOLUTE = 1
 const VELOCITY_MODE_RELATIVE = 0
 
 type BPatcherPropertyObj = {
@@ -61,20 +59,27 @@ function updateScales() {
   let root_note = state.rootNote - 12
   let note = root_note
 
-  // fill scaleMeta.notes with valid note numbers
-  while (note <= 127) {
-    for (let i = 0; i < state.scaleIntervals.length; i++) {
-      const interval = state.scaleIntervals[i]
-      note = root_note + interval
-      if (note >= 0 && note <= 127) {
-        state.scaleNotes.push(note)
-        //log('PUSH NOTE ' + JSON.stringify({ note, root_note, interval }))
-      }
+  if (!state.scaleAware) {
+    for (let i = 0; i < 128; i++) {
+      state.scaleNotes.push(i)
     }
-    root_note += 12
-    note = root_note
+  } else {
+    // fill scaleMeta.notes with valid note numbers
+    while (note <= 127) {
+      for (let i = 0; i < state.scaleIntervals.length; i++) {
+        const interval = state.scaleIntervals[i]
+        note = root_note + interval
+        if (note >= 0 && note <= 127) {
+          state.scaleNotes.push(note)
+          //log('PUSH NOTE ' + JSON.stringify({ note, root_note, interval }))
+        }
+      }
+      root_note += 12
+      note = root_note
+    }
   }
   //log('SCALE_NOTES ' + JSON.stringify(state.scaleNotes))
+  outlet(0, ['noteArr', ...state.scaleNotes])
 }
 
 function quantizeNote(noteNum: number) {
@@ -130,6 +135,7 @@ function rootNote(val: number) {
 }
 function scaleAware(val: number) {
   state.scaleAware = +val === 1 ? 1 : 0
+
   updateScales()
 }
 

@@ -1,4 +1,13 @@
 "use strict";
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 inlets = 1;
 outlets = 1;
 autowatch = 1;
@@ -9,8 +18,6 @@ var utils_1 = require("./utils");
 var log = (0, utils_1.logFactory)(config);
 var NUM_STEPS = 16;
 var PITCH_MODE_ABSOLUTE = 1;
-var PITCH_MODE_RELATIVE = 0;
-var VELOCITY_MODE_ABSOLUTE = 1;
 var VELOCITY_MODE_RELATIVE = 0;
 var state = {
     choke: 0,
@@ -32,20 +39,28 @@ function updateScales() {
     state.scaleNotes = [];
     var root_note = state.rootNote - 12;
     var note = root_note;
-    // fill scaleMeta.notes with valid note numbers
-    while (note <= 127) {
-        for (var i = 0; i < state.scaleIntervals.length; i++) {
-            var interval = state.scaleIntervals[i];
-            note = root_note + interval;
-            if (note >= 0 && note <= 127) {
-                state.scaleNotes.push(note);
-                //log('PUSH NOTE ' + JSON.stringify({ note, root_note, interval }))
-            }
+    if (!state.scaleAware) {
+        for (var i = 0; i < 128; i++) {
+            state.scaleNotes.push(i);
         }
-        root_note += 12;
-        note = root_note;
+    }
+    else {
+        // fill scaleMeta.notes with valid note numbers
+        while (note <= 127) {
+            for (var i = 0; i < state.scaleIntervals.length; i++) {
+                var interval = state.scaleIntervals[i];
+                note = root_note + interval;
+                if (note >= 0 && note <= 127) {
+                    state.scaleNotes.push(note);
+                    //log('PUSH NOTE ' + JSON.stringify({ note, root_note, interval }))
+                }
+            }
+            root_note += 12;
+            note = root_note;
+        }
     }
     //log('SCALE_NOTES ' + JSON.stringify(state.scaleNotes))
+    outlet(0, __spreadArray(['noteArr'], state.scaleNotes, true));
 }
 function quantizeNote(noteNum) {
     if (!state.scaleAware) {
