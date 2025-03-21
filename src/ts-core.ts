@@ -84,9 +84,6 @@ function updateScales() {
     }
     outlet(OUTLET_DICT, ['append', i.toString(), lastFound])
   }
-
-  //log('SCALE_NOTES ' + JSON.stringify(state.scaleNotes))
-  //outlet(OUTLET_MSGS, ['noteArr', ...state.scaleNotes])
 }
 
 function scaleIntervals() {
