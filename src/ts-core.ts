@@ -16,9 +16,8 @@ const NUM_STEPS = 16
 
 type BPatcherPropertyObj = {
   delay: number
-  pitch: number
-  velocity: number
   duration: number
+  tie: number
 }
 
 type StateType = {
@@ -123,17 +122,12 @@ function debounceDurationUpdate() {
 }
 
 function bPatcherProperty(instance: number, property: string, value: number) {
-  const getBPatcherPropertyObj = (): BPatcherPropertyObj => {
-    return {
-      delay: 0,
-      pitch: 0,
-      velocity: 0,
-      duration: 0,
-    }
-  }
-
   if (!state.bPatcherProperties[instance]) {
-    state.bPatcherProperties[instance] = getBPatcherPropertyObj()
+    state.bPatcherProperties[instance] = {
+      delay: 0,
+      duration: 0,
+      tie: 0,
+    }
   }
   state.bPatcherProperties[instance][property as keyof BPatcherPropertyObj] =
     value
@@ -161,8 +155,10 @@ function sendDurations() {
     outlet(OUTLET_MSGS, [
       i,
       'duration',
-      // shorten the note a tiny bit to prevent overlaps
-      slotLen * state.noteLen - 5,
+      // If tie, then overlap to next slot by 10ms.
+      // Otherwise not tie, shorten the note a tiny bit to prevent overlap
+      // phasing.
+      prop['tie'] ? slotLen + 10 : slotLen * state.noteLen - 5,
     ])
     totalSteps += prop['duration']
   }

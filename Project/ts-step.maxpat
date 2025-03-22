@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 115.0, 1221.0, 885.0 ],
+		"rect" : [ 1208.0, 616.0, 1281.0, 1083.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -40,6 +40,120 @@
 		"assistshowspatchername" : 0,
 		"integercoordinates" : 1,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-145",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 918.0, 821.0, 69.0, 22.0 ],
+					"text" : "prepend tie"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"color" : [ 0.427450980392157, 0.572549019607843, 0.266666666666667, 1.0 ],
+					"id" : "obj-146",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 918.0, 900.0, 67.0, 22.0 ],
+					"text" : "s ---TO_JS"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-147",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 918.0, 858.0, 166.0, 22.0 ],
+					"text" : "prepend bPatcherProperty #1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"color" : [ 0.556862745098039, 0.266666666666667, 0.125490196078431, 1.0 ],
+					"id" : "obj-103",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 961.0, 696.0, 77.0, 22.0 ],
+					"text" : "r #0-ACTIVE"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-144",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 960.0, 728.0, 57.0, 22.0 ],
+					"text" : "active $1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"activebgcolor" : [ 0.525490196078431, 0.525490196078431, 0.525490196078431, 1.0 ],
+					"activebgoncolor" : [ 0.011764705882353, 0.764705882352941, 0.835294117647059, 1.0 ],
+					"annotation" : "Indicates this step is a rest.",
+					"annotation_name" : "Rest",
+					"automation" : "Len",
+					"automationon" : "Tie",
+					"id" : "obj-99",
+					"lcdcolor" : [ 0.011764705882353, 0.764705882352941, 0.835294117647059, 1.0 ],
+					"maxclass" : "live.text",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"parameter_enable" : 1,
+					"patching_rect" : [ 918.0, 776.0, 38.0, 26.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 2.0, 136.0, 22.0, 13.0 ],
+					"saved_attribute_attributes" : 					{
+						"activebgcolor" : 						{
+							"expression" : "themecolor.live_lcd_control_fg_zombie"
+						}
+,
+						"activebgoncolor" : 						{
+							"expression" : "themecolor.live_lcd_control_fg_alt"
+						}
+,
+						"lcdcolor" : 						{
+							"expression" : "themecolor.live_lcd_control_fg_alt"
+						}
+,
+						"valueof" : 						{
+							"parameter_annotation_name" : "Rest",
+							"parameter_enum" : [ "Len", "Tie" ],
+							"parameter_info" : "Indicates this step is a rest.",
+							"parameter_initial" : [ 0 ],
+							"parameter_initial_enable" : 1,
+							"parameter_linknames" : 1,
+							"parameter_longname" : "#1-Tie",
+							"parameter_mmax" : 1,
+							"parameter_modmode" : 0,
+							"parameter_shortname" : "#1-Tie",
+							"parameter_type" : 2
+						}
+
+					}
+,
+					"text" : "",
+					"texton" : "",
+					"varname" : "#1-Tie"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-143",
 					"maxclass" : "newobj",
@@ -118,10 +232,11 @@
 					"outlettype" : [ "", "", "", "" ],
 					"patching_rect" : [ 46.0, 548.0, 56.0, 22.0 ],
 					"restore" : 					{
-						"#1-Active" : [ 1.0 ],
-						"#1-Duration" : [ 1.0 ],
+						"#1-Duration" : [ 0.0 ],
 						"#1-PitchAbs" : [ 60.0 ],
 						"#1-PitchRel" : [ 0.0 ],
+						"#1-Rest" : [ 1.0 ],
+						"#1-Tie" : [ 1.0 ],
 						"#1-VelocityAbs" : [ 100.0 ],
 						"#1-VelocityRel" : [ 0.0 ]
 					}
@@ -695,130 +810,130 @@
 				"box" : 				{
 					"data" : 					{
 						"0" : 0,
-						"1" : 0,
-						"2" : 2,
-						"3" : 2,
-						"4" : 4,
+						"1" : 1,
+						"2" : 1,
+						"3" : 3,
+						"4" : 3,
 						"5" : 5,
 						"6" : 5,
 						"7" : 7,
-						"8" : 7,
-						"9" : 9,
-						"10" : 9,
-						"11" : 11,
+						"8" : 8,
+						"9" : 8,
+						"10" : 10,
+						"11" : 10,
 						"12" : 12,
-						"13" : 12,
-						"14" : 14,
-						"15" : 14,
-						"16" : 16,
+						"13" : 13,
+						"14" : 13,
+						"15" : 15,
+						"16" : 15,
 						"17" : 17,
 						"18" : 17,
 						"19" : 19,
-						"20" : 19,
-						"21" : 21,
-						"22" : 21,
-						"23" : 23,
+						"20" : 20,
+						"21" : 20,
+						"22" : 22,
+						"23" : 22,
 						"24" : 24,
-						"25" : 24,
-						"26" : 26,
-						"27" : 26,
-						"28" : 28,
+						"25" : 25,
+						"26" : 25,
+						"27" : 27,
+						"28" : 27,
 						"29" : 29,
 						"30" : 29,
 						"31" : 31,
-						"32" : 31,
-						"33" : 33,
-						"34" : 33,
-						"35" : 35,
+						"32" : 32,
+						"33" : 32,
+						"34" : 34,
+						"35" : 34,
 						"36" : 36,
-						"37" : 36,
-						"38" : 38,
-						"39" : 38,
-						"40" : 40,
+						"37" : 37,
+						"38" : 37,
+						"39" : 39,
+						"40" : 39,
 						"41" : 41,
 						"42" : 41,
 						"43" : 43,
-						"44" : 43,
-						"45" : 45,
-						"46" : 45,
-						"47" : 47,
+						"44" : 44,
+						"45" : 44,
+						"46" : 46,
+						"47" : 46,
 						"48" : 48,
-						"49" : 48,
-						"50" : 50,
-						"51" : 50,
-						"52" : 52,
+						"49" : 49,
+						"50" : 49,
+						"51" : 51,
+						"52" : 51,
 						"53" : 53,
 						"54" : 53,
 						"55" : 55,
-						"56" : 55,
-						"57" : 57,
-						"58" : 57,
-						"59" : 59,
+						"56" : 56,
+						"57" : 56,
+						"58" : 58,
+						"59" : 58,
 						"60" : 60,
-						"61" : 60,
-						"62" : 62,
-						"63" : 62,
-						"64" : 64,
+						"61" : 61,
+						"62" : 61,
+						"63" : 63,
+						"64" : 63,
 						"65" : 65,
 						"66" : 65,
 						"67" : 67,
-						"68" : 67,
-						"69" : 69,
-						"70" : 69,
-						"71" : 71,
+						"68" : 68,
+						"69" : 68,
+						"70" : 70,
+						"71" : 70,
 						"72" : 72,
-						"73" : 72,
-						"74" : 74,
-						"75" : 74,
-						"76" : 76,
+						"73" : 73,
+						"74" : 73,
+						"75" : 75,
+						"76" : 75,
 						"77" : 77,
 						"78" : 77,
 						"79" : 79,
-						"80" : 79,
-						"81" : 81,
-						"82" : 81,
-						"83" : 83,
+						"80" : 80,
+						"81" : 80,
+						"82" : 82,
+						"83" : 82,
 						"84" : 84,
-						"85" : 84,
-						"86" : 86,
-						"87" : 86,
-						"88" : 88,
+						"85" : 85,
+						"86" : 85,
+						"87" : 87,
+						"88" : 87,
 						"89" : 89,
 						"90" : 89,
 						"91" : 91,
-						"92" : 91,
-						"93" : 93,
-						"94" : 93,
-						"95" : 95,
+						"92" : 92,
+						"93" : 92,
+						"94" : 94,
+						"95" : 94,
 						"96" : 96,
-						"97" : 96,
-						"98" : 98,
-						"99" : 98,
-						"100" : 100,
+						"97" : 97,
+						"98" : 97,
+						"99" : 99,
+						"100" : 99,
 						"101" : 101,
 						"102" : 101,
 						"103" : 103,
-						"104" : 103,
-						"105" : 105,
-						"106" : 105,
-						"107" : 107,
+						"104" : 104,
+						"105" : 104,
+						"106" : 106,
+						"107" : 106,
 						"108" : 108,
-						"109" : 108,
-						"110" : 110,
-						"111" : 110,
-						"112" : 112,
+						"109" : 109,
+						"110" : 109,
+						"111" : 111,
+						"112" : 111,
 						"113" : 113,
 						"114" : 113,
 						"115" : 115,
-						"116" : 115,
-						"117" : 117,
-						"118" : 117,
-						"119" : 119,
+						"116" : 116,
+						"117" : 116,
+						"118" : 118,
+						"119" : 118,
 						"120" : 120,
-						"121" : 120,
-						"122" : 122,
-						"123" : 122,
-						"124" : 124,
+						"121" : 121,
+						"122" : 121,
+						"123" : 123,
+						"124" : 123,
 						"125" : 125,
 						"126" : 125,
 						"127" : 127
@@ -1279,7 +1394,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 1930.0, 934.0, 150.0, 18.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 3.0, 24.0, 18.0 ],
+					"presentation_rect" : [ 0.0, 0.0, 27.0, 18.0 ],
 					"saved_attribute_attributes" : 					{
 						"bgcolor" : 						{
 							"expression" : "themecolor.00000000"
@@ -1590,6 +1705,7 @@
 					"activeneedlecolor" : [ 1.0, 0.67843137254902, 0.337254901960784, 1.0 ],
 					"annotation" : "Number of semitones or scale degrees to adjust the pitch of this step.",
 					"annotation_name" : "Note Offset",
+					"hidden" : 1,
 					"hint" : "",
 					"id" : "obj-35",
 					"maxclass" : "live.dial",
@@ -1599,7 +1715,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 445.0, 448.0, 27.0, 37.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 24.0, 27.0, 37.0 ],
+					"presentation_rect" : [ 0.0, 20.0, 27.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"activedialcolor" : 						{
 							"expression" : "themecolor.live_lcd_frame"
@@ -1646,7 +1762,6 @@
 					"activeneedlecolor" : [ 1.0, 0.67843137254902, 0.337254901960784, 1.0 ],
 					"annotation" : "Note to play in this step.",
 					"annotation_name" : "Note",
-					"hidden" : 1,
 					"id" : "obj-1",
 					"maxclass" : "live.dial",
 					"numinlets" : 1,
@@ -1655,7 +1770,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 492.0, 448.0, 27.0, 37.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 24.0, 27.0, 37.0 ],
+					"presentation_rect" : [ 0.0, 20.0, 27.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"activedialcolor" : 						{
 							"expression" : "themecolor.live_lcd_control_fg"
@@ -1725,7 +1840,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"patching_rect" : [ 1099.0, 502.0, 33.0, 22.0 ],
-					"text" : "== 1"
+					"text" : "== 0"
 				}
 
 			}
@@ -1736,7 +1851,6 @@
 					"activeneedlecolor" : [ 1.0, 0.67843137254902, 0.337254901960784, 1.0 ],
 					"annotation" : "Velocity to use for this step.",
 					"annotation_name" : "Velocity",
-					"hidden" : 1,
 					"id" : "obj-18",
 					"maxclass" : "live.dial",
 					"numinlets" : 1,
@@ -1745,7 +1859,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 728.0, 448.0, 27.0, 37.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 65.0, 27.0, 37.0 ],
+					"presentation_rect" : [ 0.0, 58.0, 27.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"activedialcolor" : 						{
 							"expression" : "themecolor.live_lcd_control_fg"
@@ -3239,6 +3353,7 @@
 			}
 , 			{
 				"box" : 				{
+					"activebgcolor" : [ 0.525490196078431, 0.525490196078431, 0.525490196078431, 1.0 ],
 					"activebgoncolor" : [ 0.011764705882353, 0.764705882352941, 0.835294117647059, 1.0 ],
 					"annotation" : "Indicates this step is a rest.",
 					"annotation_name" : "Rest",
@@ -3253,8 +3368,12 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 1023.0, 448.0, 38.0, 26.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 2.0, 151.0, 22.0, 13.0 ],
+					"presentation_rect" : [ 2.0, 153.0, 22.0, 13.0 ],
 					"saved_attribute_attributes" : 					{
+						"activebgcolor" : 						{
+							"expression" : "themecolor.live_lcd_control_fg_zombie"
+						}
+,
 						"activebgoncolor" : 						{
 							"expression" : "themecolor.live_lcd_control_fg_alt"
 						}
@@ -3267,13 +3386,13 @@
 							"parameter_annotation_name" : "Rest",
 							"parameter_enum" : [ "Rest", "Note" ],
 							"parameter_info" : "Indicates this step is a rest.",
-							"parameter_initial" : [ 1 ],
+							"parameter_initial" : [ 0 ],
 							"parameter_initial_enable" : 1,
 							"parameter_linknames" : 1,
-							"parameter_longname" : "#1-Active",
+							"parameter_longname" : "#1-Rest",
 							"parameter_mmax" : 1,
 							"parameter_modmode" : 0,
-							"parameter_shortname" : "#1-Active",
+							"parameter_shortname" : "#1-Rest",
 							"parameter_type" : 2
 						}
 
@@ -3281,7 +3400,7 @@
 ,
 					"text" : "",
 					"texton" : "",
-					"varname" : "#1-Active"
+					"varname" : "#1-Rest"
 				}
 
 			}
@@ -3300,7 +3419,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 895.0, 450.0, 27.0, 37.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 106.0, 27.0, 37.0 ],
+					"presentation_rect" : [ 0.0, 96.0, 27.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"activedialcolor" : 						{
 							"expression" : "themecolor.live_lcd_control_fg"
@@ -3346,6 +3465,7 @@
 					"activeneedlecolor" : [ 1.0, 0.67843137254902, 0.337254901960784, 1.0 ],
 					"annotation" : "Amount to add or subtract from the original note velocity for this step.",
 					"annotation_name" : "Velocity Offset",
+					"hidden" : 1,
 					"id" : "obj-2",
 					"maxclass" : "live.dial",
 					"numinlets" : 1,
@@ -3354,7 +3474,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 681.0, 448.0, 27.0, 37.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 65.0, 27.0, 37.0 ],
+					"presentation_rect" : [ 0.0, 58.0, 27.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"activedialcolor" : 						{
 							"expression" : "themecolor.live_lcd_frame"
@@ -3438,6 +3558,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-110", 0 ],
 					"source" : [ "obj-102", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-144", 0 ],
+					"source" : [ "obj-103", 0 ]
 				}
 
 			}
@@ -3714,6 +3841,27 @@
 				"patchline" : 				{
 					"destination" : [ "obj-141", 0 ],
 					"source" : [ "obj-143", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-99", 0 ],
+					"source" : [ "obj-144", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-147", 0 ],
+					"source" : [ "obj-145", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-146", 0 ],
+					"source" : [ "obj-147", 0 ]
 				}
 
 			}
@@ -4451,6 +4599,13 @@
 				}
 
 			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-145", 0 ],
+					"source" : [ "obj-99", 0 ]
+				}
+
+			}
  ],
 		"parameters" : 		{
 			"obj-1" : [ "#1-PitchAbs", "#1-PitchAbs", 0 ],
@@ -4458,7 +4613,8 @@
 			"obj-2" : [ "#1-VelocityRel", "#1-VelocityRel", 0 ],
 			"obj-3" : [ "#1-Duration", "#1-Duration", 0 ],
 			"obj-35" : [ "#1-PitchRel", "#1-PitchRel", 0 ],
-			"obj-4" : [ "#1-Active", "#1-Active", 0 ],
+			"obj-4" : [ "#1-Rest", "#1-Rest", 0 ],
+			"obj-99" : [ "#1-Tie", "#1-Tie", 0 ],
 			"parameterbanks" : 			{
 				"0" : 				{
 					"index" : 0,

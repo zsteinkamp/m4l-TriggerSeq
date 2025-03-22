@@ -90,16 +90,12 @@ function debounceDurationUpdate() {
     state.bPatcherUpdateDebounce.schedule(50);
 }
 function bPatcherProperty(instance, property, value) {
-    var getBPatcherPropertyObj = function () {
-        return {
-            delay: 0,
-            pitch: 0,
-            velocity: 0,
-            duration: 0,
-        };
-    };
     if (!state.bPatcherProperties[instance]) {
-        state.bPatcherProperties[instance] = getBPatcherPropertyObj();
+        state.bPatcherProperties[instance] = {
+            delay: 0,
+            duration: 0,
+            tie: 0,
+        };
     }
     state.bPatcherProperties[instance][property] =
         value;
@@ -125,8 +121,10 @@ function sendDurations() {
         outlet(OUTLET_MSGS, [
             i,
             'duration',
-            // shorten the note a tiny bit to prevent overlaps
-            slotLen * state.noteLen - 5,
+            // If tie, then overlap to next slot by 10ms.
+            // Otherwise not tie, shorten the note a tiny bit to prevent overlap
+            // phasing.
+            prop['tie'] ? slotLen + 10 : slotLen * state.noteLen - 5,
         ]);
         totalSteps += prop['duration'];
     }
