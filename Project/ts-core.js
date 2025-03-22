@@ -22,6 +22,7 @@ var state = {
     scaleNotes: [],
     bPatcherProperties: [],
     bPatcherUpdateDebounce: null,
+    scaleUpdateDebounce: null,
 };
 function updateScales() {
     //log('UPDATE_SCALES' + JSON.stringify(state.scaleIntervals))
@@ -64,17 +65,24 @@ function scaleIntervals() {
     }
     state.scaleIntervals = intervals;
     //log('INTS ' + state.scaleIntervals.join(','))
-    updateScales();
+    debounceScaleUpdate();
 }
 function rootNote(val) {
     state.rootNote = +val;
-    updateScales();
+    debounceScaleUpdate();
 }
 function scaleAware(val) {
     state.scaleAware = +val === 1 ? 1 : 0;
-    updateScales();
+    debounceScaleUpdate();
 }
-function debounceUpdate() {
+function debounceScaleUpdate() {
+    if (state.scaleUpdateDebounce) {
+        state.scaleUpdateDebounce.cancel();
+    }
+    state.scaleUpdateDebounce = new Task(updateScales);
+    state.scaleUpdateDebounce.schedule(50);
+}
+function debounceDurationUpdate() {
     if (state.bPatcherUpdateDebounce) {
         state.bPatcherUpdateDebounce.cancel();
     }
@@ -102,7 +110,7 @@ function bPatcherProperty(instance, property, value) {
     //    ' ' +
     //    JSON.stringify(state.bPatcherProperties[instance])
     //)
-    debounceUpdate();
+    debounceDurationUpdate();
 }
 function sendDurations() {
     var totalSteps = 0;
@@ -125,15 +133,15 @@ function sendDurations() {
 }
 function setNoteLen(len) {
     state.noteLen = +len / 100.0;
-    sendDurations();
+    debounceDurationUpdate();
 }
 function setSwing(swingVal) {
     state.swing = +swingVal;
-    sendDurations();
+    debounceDurationUpdate();
 }
 function setStepLen(len) {
     state.stepLen = +len;
-    sendDurations();
+    debounceDurationUpdate();
 }
 function setChoke(val) {
     state.choke = +val === 1 ? 1 : 0;

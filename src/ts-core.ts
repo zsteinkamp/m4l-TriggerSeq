@@ -33,6 +33,7 @@ type StateType = {
   scaleNotes: number[]
   bPatcherProperties: BPatcherPropertyObj[]
   bPatcherUpdateDebounce: Task
+  scaleUpdateDebounce: Task
 }
 const state: StateType = {
   choke: 0,
@@ -46,6 +47,7 @@ const state: StateType = {
   scaleNotes: [],
   bPatcherProperties: [],
   bPatcherUpdateDebounce: null,
+  scaleUpdateDebounce: null,
 }
 
 function updateScales() {
@@ -92,19 +94,27 @@ function scaleIntervals() {
   }
   state.scaleIntervals = intervals
   //log('INTS ' + state.scaleIntervals.join(','))
-  updateScales()
+  debounceScaleUpdate()
 }
 function rootNote(val: number) {
   state.rootNote = +val
-  updateScales()
+  debounceScaleUpdate()
 }
 function scaleAware(val: number) {
   state.scaleAware = +val === 1 ? 1 : 0
 
-  updateScales()
+  debounceScaleUpdate()
 }
 
-function debounceUpdate() {
+function debounceScaleUpdate() {
+  if (state.scaleUpdateDebounce) {
+    state.scaleUpdateDebounce.cancel()
+  }
+  state.scaleUpdateDebounce = new Task(updateScales)
+  state.scaleUpdateDebounce.schedule(50)
+}
+
+function debounceDurationUpdate() {
   if (state.bPatcherUpdateDebounce) {
     state.bPatcherUpdateDebounce.cancel()
   }
@@ -134,7 +144,7 @@ function bPatcherProperty(instance: number, property: string, value: number) {
   //    ' ' +
   //    JSON.stringify(state.bPatcherProperties[instance])
   //)
-  debounceUpdate()
+  debounceDurationUpdate()
 }
 
 function sendDurations() {
@@ -160,16 +170,16 @@ function sendDurations() {
 
 function setNoteLen(len: number) {
   state.noteLen = +len / 100.0
-  sendDurations()
+  debounceDurationUpdate()
 }
 function setSwing(swingVal: number) {
   state.swing = +swingVal
-  sendDurations()
+  debounceDurationUpdate()
 }
 
 function setStepLen(len: number) {
   state.stepLen = +len
-  sendDurations()
+  debounceDurationUpdate()
 }
 function setChoke(val: number) {
   state.choke = +val === 1 ? 1 : 0
