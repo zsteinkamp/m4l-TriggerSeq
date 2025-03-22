@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 1007.0, 136.0, 244.0, 885.0 ],
+		"rect" : [ 40.0, 136.0, 1211.0, 885.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -1139,13 +1139,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-101",
-					"linecount" : 3,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 1945.0, 828.0, 121.0, 49.0 ],
-					"text" : "bgcolor \"00000000\", textcolor \"LCD Text / Icon\""
+					"patching_rect" : [ 1945.0, 828.0, 226.0, 22.0 ],
+					"text" : "bgcolor \"00000000\", textcolor \"LCD Title\""
 				}
 
 			}
@@ -1263,13 +1262,13 @@
 						}
 ,
 						"textcolor" : 						{
-							"expression" : "themecolor.live_lcd_control_fg"
+							"expression" : "themecolor.live_lcd_title"
 						}
 
 					}
 ,
 					"text" : "1",
-					"textcolor" : [ 1.0, 0.67843137254902, 0.337254901960784, 1.0 ],
+					"textcolor" : [ 0.709803921568627, 0.709803921568627, 0.709803921568627, 1.0 ],
 					"textjustification" : 1
 				}
 
@@ -1576,7 +1575,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 445.0, 448.0, 27.0, 37.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 23.0, 27.0, 37.0 ],
+					"presentation_rect" : [ 0.0, 24.0, 27.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"activedialcolor" : 						{
 							"expression" : "themecolor.live_lcd_frame"
@@ -1632,7 +1631,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 492.0, 448.0, 27.0, 37.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 23.0, 27.0, 37.0 ],
+					"presentation_rect" : [ 0.0, 24.0, 27.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"activedialcolor" : 						{
 							"expression" : "themecolor.live_lcd_control_fg"
@@ -1722,7 +1721,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 728.0, 448.0, 27.0, 37.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 64.0, 27.0, 37.0 ],
+					"presentation_rect" : [ 0.0, 65.0, 27.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"activedialcolor" : 						{
 							"expression" : "themecolor.live_lcd_control_fg"
@@ -3216,11 +3215,13 @@
 			}
 , 			{
 				"box" : 				{
+					"activebgoncolor" : [ 0.011764705882353, 0.764705882352941, 0.835294117647059, 1.0 ],
 					"annotation" : "Indicates this step is a rest.",
 					"annotation_name" : "Rest",
 					"automation" : "Rest",
 					"automationon" : "Note",
 					"id" : "obj-4",
+					"lcdcolor" : [ 0.011764705882353, 0.764705882352941, 0.835294117647059, 1.0 ],
 					"maxclass" : "live.text",
 					"numinlets" : 1,
 					"numoutlets" : 2,
@@ -3230,6 +3231,14 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 2.0, 151.0, 22.0, 13.0 ],
 					"saved_attribute_attributes" : 					{
+						"activebgoncolor" : 						{
+							"expression" : "themecolor.live_lcd_control_fg_alt"
+						}
+,
+						"lcdcolor" : 						{
+							"expression" : "themecolor.live_lcd_control_fg_alt"
+						}
+,
 						"valueof" : 						{
 							"parameter_annotation_name" : "Rest",
 							"parameter_enum" : [ "Rest", "Note" ],
@@ -3321,7 +3330,7 @@
 					"parameter_enable" : 1,
 					"patching_rect" : [ 681.0, 448.0, 27.0, 37.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 64.0, 27.0, 37.0 ],
+					"presentation_rect" : [ 0.0, 65.0, 27.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"activedialcolor" : 						{
 							"expression" : "themecolor.live_lcd_frame"
