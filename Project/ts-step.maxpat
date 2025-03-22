@@ -41,6 +41,50 @@
 		"integercoordinates" : 1,
 		"boxes" : [ 			{
 				"box" : 				{
+					"fontface" : 1,
+					"fontname" : "Ableton Sans Medium",
+					"fontsize" : 16.0,
+					"id" : "obj-139",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 44.0, 515.0, 151.0, 26.0 ],
+					"saved_attribute_attributes" : 					{
+						"textcolor" : 						{
+							"expression" : "themecolor.live_freeze_color"
+						}
+
+					}
+,
+					"text" : "Autopattr",
+					"textcolor" : [ 0.262745098039216, 0.568627450980392, 0.901960784313726, 1.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-138",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 4,
+					"outlettype" : [ "", "", "", "" ],
+					"patching_rect" : [ 46.0, 548.0, 56.0, 22.0 ],
+					"restore" : 					{
+						"#1-Active" : [ 1.0 ],
+						"#1-Duration" : [ 1.0 ],
+						"#1-PitchAbs" : [ 60.0 ],
+						"#1-PitchRel" : [ 0.0 ],
+						"#1-VelocityAbs" : [ 100.0 ],
+						"#1-VelocityRel" : [ 0.0 ]
+					}
+,
+					"text" : "autopattr",
+					"varname" : "u016012526"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-131",
 					"maxclass" : "newobj",
 					"numinlets" : 3,
@@ -1026,7 +1070,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1527.0, 651.0, 50.0, 22.0 ],
-					"text" : "105."
+					"text" : "100."
 				}
 
 			}
