@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 101.0, 1176.0, 972.0 ],
+		"rect" : [ 1007.0, 136.0, 244.0, 885.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -1026,7 +1026,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1527.0, 651.0, 50.0, 22.0 ],
-					"text" : "100."
+					"text" : "105."
 				}
 
 			}
@@ -1212,7 +1212,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 1814.0, 900.0, 150.0, 18.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 9.0, 24.0, 18.0 ],
+					"presentation_rect" : [ 0.0, 2.0, 24.0, 18.0 ],
 					"saved_attribute_attributes" : 					{
 						"bgcolor" : 						{
 							"expression" : "themecolor.00000000"
@@ -1518,12 +1518,11 @@
 			}
 , 			{
 				"box" : 				{
-					"activedialcolor" : [ 1.0, 0.67843137254902, 0.337254901960784, 1.0 ],
+					"activedialcolor" : [ 0.243137254901961, 0.243137254901961, 0.243137254901961, 1.0 ],
 					"activefgdialcolor" : [ 0.243137254901961, 0.243137254901961, 0.243137254901961, 1.0 ],
 					"activeneedlecolor" : [ 1.0, 0.67843137254902, 0.337254901960784, 1.0 ],
 					"annotation" : "Number of semitones or scale degrees to adjust the pitch of this step.",
 					"annotation_name" : "Note Offset",
-					"appearance" : 1,
 					"hint" : "",
 					"id" : "obj-35",
 					"maxclass" : "live.dial",
@@ -1531,12 +1530,12 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 445.0, 448.0, 35.0, 23.0 ],
+					"patching_rect" : [ 445.0, 448.0, 27.0, 37.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 36.0, 34.0, 23.0 ],
+					"presentation_rect" : [ 0.0, 23.0, 27.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"activedialcolor" : 						{
-							"expression" : "themecolor.live_lcd_control_fg"
+							"expression" : "themecolor.live_lcd_frame"
 						}
 ,
 						"activefgdialcolor" : 						{
@@ -1559,7 +1558,7 @@
 							"parameter_longname" : "#1-PitchRel",
 							"parameter_mmax" : 64.0,
 							"parameter_mmin" : -64.0,
-							"parameter_modmode" : 3,
+							"parameter_modmode" : 2,
 							"parameter_shortname" : "#1-PitchRel",
 							"parameter_type" : 0,
 							"parameter_unitstyle" : 0
@@ -1580,7 +1579,6 @@
 					"activeneedlecolor" : [ 1.0, 0.67843137254902, 0.337254901960784, 1.0 ],
 					"annotation" : "Note to play in this step.",
 					"annotation_name" : "Note",
-					"appearance" : 1,
 					"hidden" : 1,
 					"id" : "obj-1",
 					"maxclass" : "live.dial",
@@ -1588,9 +1586,9 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 492.0, 448.0, 35.0, 23.0 ],
+					"patching_rect" : [ 492.0, 448.0, 27.0, 37.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 36.0, 33.0, 23.0 ],
+					"presentation_rect" : [ 0.0, 23.0, 27.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"activedialcolor" : 						{
 							"expression" : "themecolor.live_lcd_control_fg"
@@ -1671,7 +1669,6 @@
 					"activeneedlecolor" : [ 1.0, 0.67843137254902, 0.337254901960784, 1.0 ],
 					"annotation" : "Velocity to use for this step.",
 					"annotation_name" : "Velocity",
-					"appearance" : 1,
 					"hidden" : 1,
 					"id" : "obj-18",
 					"maxclass" : "live.dial",
@@ -1679,9 +1676,9 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 728.0, 448.0, 35.0, 23.0 ],
+					"patching_rect" : [ 728.0, 448.0, 27.0, 37.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 76.0, 32.0, 23.0 ],
+					"presentation_rect" : [ 0.0, 64.0, 27.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"activedialcolor" : 						{
 							"expression" : "themecolor.live_lcd_control_fg"
@@ -2334,7 +2331,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 937.0, 368.0, 77.0, 22.0 ],
+					"patching_rect" : [ 917.0, 368.0, 77.0, 22.0 ],
 					"text" : "r #0-ACTIVE"
 				}
 
@@ -2370,7 +2367,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 936.0, 400.0, 57.0, 22.0 ],
+					"patching_rect" : [ 916.0, 400.0, 57.0, 22.0 ],
 					"text" : "active $1"
 				}
 
@@ -3218,16 +3215,15 @@
 					"activeneedlecolor" : [ 1.0, 0.67843137254902, 0.337254901960784, 1.0 ],
 					"annotation" : "Multiple of the base length specified to the left.",
 					"annotation_name" : "Duration",
-					"appearance" : 1,
 					"id" : "obj-3",
 					"maxclass" : "live.dial",
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 895.0, 450.0, 35.0, 23.0 ],
+					"patching_rect" : [ 895.0, 450.0, 27.0, 37.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 116.0, 34.0, 23.0 ],
+					"presentation_rect" : [ 0.0, 106.0, 27.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"activedialcolor" : 						{
 							"expression" : "themecolor.live_lcd_control_fg"
@@ -3268,24 +3264,23 @@
 			}
 , 			{
 				"box" : 				{
-					"activedialcolor" : [ 1.0, 0.67843137254902, 0.337254901960784, 1.0 ],
+					"activedialcolor" : [ 0.243137254901961, 0.243137254901961, 0.243137254901961, 1.0 ],
 					"activefgdialcolor" : [ 0.243137254901961, 0.243137254901961, 0.243137254901961, 1.0 ],
 					"activeneedlecolor" : [ 1.0, 0.67843137254902, 0.337254901960784, 1.0 ],
 					"annotation" : "Amount to add or subtract from the original note velocity for this step.",
 					"annotation_name" : "Velocity Offset",
-					"appearance" : 1,
 					"id" : "obj-2",
 					"maxclass" : "live.dial",
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "float" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 681.0, 448.0, 35.0, 23.0 ],
+					"patching_rect" : [ 681.0, 448.0, 27.0, 37.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 0.0, 76.0, 34.0, 23.0 ],
+					"presentation_rect" : [ 0.0, 64.0, 27.0, 37.0 ],
 					"saved_attribute_attributes" : 					{
 						"activedialcolor" : 						{
-							"expression" : "themecolor.live_lcd_control_fg"
+							"expression" : "themecolor.live_lcd_frame"
 						}
 ,
 						"activefgdialcolor" : 						{
@@ -3305,6 +3300,7 @@
 							"parameter_info" : "Amount to add or subtract from the original note velocity for this step.",
 							"parameter_initial" : [ 0.0 ],
 							"parameter_initial_enable" : 1,
+							"parameter_linknames" : 1,
 							"parameter_longname" : "#1-VelocityRel",
 							"parameter_mmax" : 64.0,
 							"parameter_mmin" : -64.0,
