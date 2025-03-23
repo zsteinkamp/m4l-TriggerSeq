@@ -14,17 +14,20 @@ Store 16 presets and and recall them with a parameter knob, enabling a different
 
 ## Features
 - Incoming notes trigger a sequence
-- Pitch can be absolute or relative
-- Scale awareness optional
-- Velocity can be absolute or relative
-- Duration is multiples of a base
+- `Play Mode` control
+    - `Thru` = Note-on triggers the sequence to play until the end. New note-ons do not interrupt a currently playing sequence.
+    - `Choke` = Note-on triggers the sequence to play until the end. New note-ons _do_ interrupt a currently playing sequence.
+    - `Hold` = Play the sequence as long as notes are held. It will loop when it reaches the end.
+- `Pitch` can be absolute or relative
+  - Scale awareness optional
+- `Velocity` can be absolute or relative
 - Rests are supported (non-playing pattern slots)
-- Switch to choke or play through if a MIDI note arrives before the sequence is done playing
-- Time can be notes or ms
-- `Swing` control.
+- `Time` can be notes or ms
+- Slot `Duration` is multiples of a time base
+- `Swing` control (-95% to +95%)
 - `Mono` or `Poly` operation (8 voice support)
-- 16 automatable snapshot presets
 - `Tie` function to work nicely with 303s and other monosynths with portamento
+- 16 automatable snapshot presets
 
 
 ## Installation
@@ -33,6 +36,7 @@ Store 16 presets and and recall them with a parameter knob, enabling a different
 
 ## Changelog
 
+- 2025-03-32 [v3](https://github.com/zsteinkamp/m4l-TriggerSeq/releases/download/v3/TriggerSeq-v3.amxd) - Added Hold mode; Extended Swing to +/- 95%.
 - 2025-03-22 [v2](https://github.com/zsteinkamp/m4l-TriggerSeq/releases/download/v2/TriggerSeq-v2.amxd) - Mono / Poly mode, Tie attribute, Presets.
 - 2025-03-20 [v1](https://github.com/zsteinkamp/m4l-TriggerSeq/releases/download/v1/TriggerSeq-v1.amxd) - Initial Release.
 
