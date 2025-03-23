@@ -23,7 +23,6 @@ type BPatcherPropertyObj = {
 type StateType = {
   choke: 0 | 1
   noteLen: number
-  patternLen: number
   swing: number
   stepLen: number
   scaleAware: 0 | 1
@@ -37,7 +36,6 @@ type StateType = {
 const state: StateType = {
   choke: 0,
   noteLen: 1,
-  patternLen: 16,
   swing: 0.5,
   stepLen: 0.5,
   scaleAware: 1,
@@ -110,7 +108,7 @@ function debounceScaleUpdate() {
     state.scaleUpdateDebounce.cancel()
   }
   state.scaleUpdateDebounce = new Task(updateScales)
-  state.scaleUpdateDebounce.schedule(50)
+  state.scaleUpdateDebounce.schedule(200)
 }
 
 function debounceDurationUpdate() {
@@ -118,7 +116,7 @@ function debounceDurationUpdate() {
     state.bPatcherUpdateDebounce.cancel()
   }
   state.bPatcherUpdateDebounce = new Task(sendDurations)
-  state.bPatcherUpdateDebounce.schedule(50)
+  state.bPatcherUpdateDebounce.schedule(200)
 }
 
 function bPatcherProperty(instance: number, property: string, value: number) {
@@ -143,6 +141,7 @@ function bPatcherProperty(instance: number, property: string, value: number) {
 
 function sendDurations() {
   let totalSteps = 0
+  //log('SEND DURATIONS')
   for (let i = 1; i <= NUM_STEPS; i++) {
     const prop = state.bPatcherProperties[i]
     if (!prop) {
@@ -179,9 +178,6 @@ function setStepLen(len: number) {
 }
 function setChoke(val: number) {
   state.choke = +val === 1 ? 1 : 0
-}
-function setPatternLen(val: number) {
-  state.patternLen = +val
 }
 
 post('Reloaded ts-core\n')

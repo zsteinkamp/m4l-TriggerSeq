@@ -13,7 +13,6 @@ var NUM_STEPS = 16;
 var state = {
     choke: 0,
     noteLen: 1,
-    patternLen: 16,
     swing: 0.5,
     stepLen: 0.5,
     scaleAware: 1,
@@ -80,14 +79,14 @@ function debounceScaleUpdate() {
         state.scaleUpdateDebounce.cancel();
     }
     state.scaleUpdateDebounce = new Task(updateScales);
-    state.scaleUpdateDebounce.schedule(50);
+    state.scaleUpdateDebounce.schedule(200);
 }
 function debounceDurationUpdate() {
     if (state.bPatcherUpdateDebounce) {
         state.bPatcherUpdateDebounce.cancel();
     }
     state.bPatcherUpdateDebounce = new Task(sendDurations);
-    state.bPatcherUpdateDebounce.schedule(50);
+    state.bPatcherUpdateDebounce.schedule(200);
 }
 function bPatcherProperty(instance, property, value) {
     if (!state.bPatcherProperties[instance]) {
@@ -110,6 +109,7 @@ function bPatcherProperty(instance, property, value) {
 }
 function sendDurations() {
     var totalSteps = 0;
+    //log('SEND DURATIONS')
     for (var i = 1; i <= NUM_STEPS; i++) {
         var prop = state.bPatcherProperties[i];
         if (!prop) {
@@ -143,9 +143,6 @@ function setStepLen(len) {
 }
 function setChoke(val) {
     state.choke = +val === 1 ? 1 : 0;
-}
-function setPatternLen(val) {
-    state.patternLen = +val;
 }
 post('Reloaded ts-core\n');
 // NOTE: This section must appear in any .ts file that is directuly used by a
