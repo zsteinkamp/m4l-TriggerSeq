@@ -2085,7 +2085,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 1446.0, 1177.0, 150.0, 18.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 4.0, 0.0, 19.0, 18.0 ],
+					"presentation_rect" : [ 2.0, 0.0, 23.0, 18.0 ],
 					"saved_attribute_attributes" : 					{
 						"bgcolor" : 						{
 							"expression" : "themecolor.00000000"
