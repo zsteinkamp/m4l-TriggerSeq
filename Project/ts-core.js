@@ -11,7 +11,6 @@ var utils_1 = require("./utils");
 var log = (0, utils_1.logFactory)(config);
 var NUM_STEPS = 16;
 var state = {
-    choke: 0,
     noteLen: 1,
     swing: 0.5,
     stepLen: 0.5,
@@ -62,15 +61,26 @@ function scaleIntervals() {
     for (var i = 0; i < arguments.length; i++) {
         intervals.push(+arguments[i]);
     }
+    if (JSON.stringify(intervals) == JSON.stringify(state.scaleIntervals)) {
+        return;
+    }
     state.scaleIntervals = intervals;
     //log('INTS ' + state.scaleIntervals.join(','))
     debounceScaleUpdate();
 }
 function rootNote(val) {
+    var newVal = +val;
+    if (state.rootNote == newVal) {
+        return;
+    }
     state.rootNote = +val;
     debounceScaleUpdate();
 }
 function scaleAware(val) {
+    var newVal = +val === 1 ? 1 : 0;
+    if (state.scaleAware == newVal) {
+        return;
+    }
     state.scaleAware = +val === 1 ? 1 : 0;
     debounceScaleUpdate();
 }
@@ -78,15 +88,19 @@ function debounceScaleUpdate() {
     if (state.scaleUpdateDebounce) {
         state.scaleUpdateDebounce.cancel();
     }
-    state.scaleUpdateDebounce = new Task(updateScales);
-    state.scaleUpdateDebounce.schedule(200);
+    if (!state.scaleUpdateDebounce) {
+        state.scaleUpdateDebounce = new Task(updateScales);
+    }
+    state.scaleUpdateDebounce.schedule(20);
 }
 function debounceDurationUpdate() {
     if (state.bPatcherUpdateDebounce) {
         state.bPatcherUpdateDebounce.cancel();
     }
-    state.bPatcherUpdateDebounce = new Task(sendDurations);
-    state.bPatcherUpdateDebounce.schedule(200);
+    if (!state.bPatcherUpdateDebounce) {
+        state.bPatcherUpdateDebounce = new Task(sendDurations);
+    }
+    state.bPatcherUpdateDebounce.schedule(20);
 }
 function bPatcherProperty(instance, property, value) {
     if (!state.bPatcherProperties[instance]) {
@@ -95,6 +109,10 @@ function bPatcherProperty(instance, property, value) {
             duration: 0,
             tie: 0,
         };
+    }
+    if (state.bPatcherProperties[instance][property] ==
+        value) {
+        return;
     }
     state.bPatcherProperties[instance][property] =
         value;
@@ -130,19 +148,28 @@ function sendDurations() {
     }
 }
 function setNoteLen(len) {
+    var newVal = +len / 100.0;
+    if (state.noteLen == newVal) {
+        return;
+    }
     state.noteLen = +len / 100.0;
     debounceDurationUpdate();
 }
 function setSwing(swingVal) {
+    var newVal = +swingVal;
+    if (state.swing == newVal) {
+        return;
+    }
     state.swing = +swingVal;
     debounceDurationUpdate();
 }
 function setStepLen(len) {
+    var newVal = +len;
+    if (state.stepLen == newVal) {
+        return;
+    }
     state.stepLen = +len;
     debounceDurationUpdate();
-}
-function setChoke(val) {
-    state.choke = +val === 1 ? 1 : 0;
 }
 post('Reloaded ts-core\n');
 // NOTE: This section must appear in any .ts file that is directuly used by a

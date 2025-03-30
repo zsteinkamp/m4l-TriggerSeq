@@ -21,7 +21,6 @@ type BPatcherPropertyObj = {
 }
 
 type StateType = {
-  choke: 0 | 1
   noteLen: number
   swing: number
   stepLen: number
@@ -34,7 +33,6 @@ type StateType = {
   scaleUpdateDebounce: Task
 }
 const state: StateType = {
-  choke: 0,
   noteLen: 1,
   swing: 0.5,
   stepLen: 0.5,
@@ -89,15 +87,26 @@ function scaleIntervals() {
   for (let i = 0; i < arguments.length; i++) {
     intervals.push(+arguments[i])
   }
+  if (JSON.stringify(intervals) == JSON.stringify(state.scaleIntervals)) {
+    return
+  }
   state.scaleIntervals = intervals
   //log('INTS ' + state.scaleIntervals.join(','))
   debounceScaleUpdate()
 }
 function rootNote(val: number) {
+  const newVal = +val
+  if (state.rootNote == newVal) {
+    return
+  }
   state.rootNote = +val
   debounceScaleUpdate()
 }
 function scaleAware(val: number) {
+  const newVal = +val === 1 ? 1 : 0
+  if (state.scaleAware == newVal) {
+    return
+  }
   state.scaleAware = +val === 1 ? 1 : 0
 
   debounceScaleUpdate()
@@ -107,16 +116,20 @@ function debounceScaleUpdate() {
   if (state.scaleUpdateDebounce) {
     state.scaleUpdateDebounce.cancel()
   }
-  state.scaleUpdateDebounce = new Task(updateScales)
-  state.scaleUpdateDebounce.schedule(200)
+  if (!state.scaleUpdateDebounce) {
+    state.scaleUpdateDebounce = new Task(updateScales)
+  }
+  state.scaleUpdateDebounce.schedule(20)
 }
 
 function debounceDurationUpdate() {
   if (state.bPatcherUpdateDebounce) {
     state.bPatcherUpdateDebounce.cancel()
   }
-  state.bPatcherUpdateDebounce = new Task(sendDurations)
-  state.bPatcherUpdateDebounce.schedule(200)
+  if (!state.bPatcherUpdateDebounce) {
+    state.bPatcherUpdateDebounce = new Task(sendDurations)
+  }
+  state.bPatcherUpdateDebounce.schedule(20)
 }
 
 function bPatcherProperty(instance: number, property: string, value: number) {
@@ -126,6 +139,12 @@ function bPatcherProperty(instance: number, property: string, value: number) {
       duration: 0,
       tie: 0,
     }
+  }
+  if (
+    state.bPatcherProperties[instance][property as keyof BPatcherPropertyObj] ==
+    value
+  ) {
+    return
   }
   state.bPatcherProperties[instance][property as keyof BPatcherPropertyObj] =
     value
@@ -164,20 +183,29 @@ function sendDurations() {
 }
 
 function setNoteLen(len: number) {
+  const newVal = +len / 100.0
+  if (state.noteLen == newVal) {
+    return
+  }
   state.noteLen = +len / 100.0
   debounceDurationUpdate()
 }
 function setSwing(swingVal: number) {
+  const newVal = +swingVal
+  if (state.swing == newVal) {
+    return
+  }
   state.swing = +swingVal
   debounceDurationUpdate()
 }
 
 function setStepLen(len: number) {
+  const newVal = +len
+  if (state.stepLen == newVal) {
+    return
+  }
   state.stepLen = +len
   debounceDurationUpdate()
-}
-function setChoke(val: number) {
-  state.choke = +val === 1 ? 1 : 0
 }
 
 post('Reloaded ts-core\n')
