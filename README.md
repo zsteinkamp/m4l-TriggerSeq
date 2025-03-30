@@ -13,11 +13,12 @@ Use it with a monosynth like a 303 clone and dig into the new Tie function to sl
 Store 16 presets and and recall them with a parameter knob, enabling a different kind of live performance.
 
 ## Features
+
 - Incoming notes trigger a sequence
 - `Play Mode` control
-    - `Thru` = Note-on triggers the sequence to play until the end. New note-ons do not interrupt a currently playing sequence.
-    - `Choke` = Note-on triggers the sequence to play until the end. New note-ons _do_ interrupt a currently playing sequence.
-    - `Hold` = Play the sequence as long as notes are held. It will loop when it reaches the end.
+  - `Thru` = Note-on triggers the sequence to play until the end. New note-ons do not interrupt a currently playing sequence.
+  - `Choke` = Note-on triggers the sequence to play until the end. New note-ons _do_ interrupt a currently playing sequence.
+  - `Hold` = Play the sequence as long as notes are held. It will loop when it reaches the end.
 - `Pitch` can be absolute or relative
   - Scale awareness optional
 - `Velocity` can be absolute or relative
@@ -29,14 +30,14 @@ Store 16 presets and and recall them with a parameter knob, enabling a different
 - `Tie` function to work nicely with 303s and other monosynths with portamento
 - 16 automatable snapshot presets
 
-
 ## Installation
 
 [Download the newest .amxd file from the latest release](https://github.com/zsteinkamp/m4l-TriggerSeq/releases) or clone this repository, and drag the `Project/TriggerSeq.amxd` device into a track in Ableton Live.
 
 ## Changelog
 
-- 2025-03-32 [v3](https://github.com/zsteinkamp/m4l-TriggerSeq/releases/download/v3/TriggerSeq-v3.amxd) - Added Hold mode; Extended Swing to +/- 95%.
+- 2025-03-29 [v4](https://github.com/zsteinkamp/m4l-TriggerSeq/releases/download/v4/TriggerSeq-v4.amxd) - Fixed a bad bug in preset recall; Polish.
+- 2025-03-23 [v3](https://github.com/zsteinkamp/m4l-TriggerSeq/releases/download/v3/TriggerSeq-v3.amxd) - Added Hold mode; Extended Swing to +/- 95%.
 - 2025-03-22 [v2](https://github.com/zsteinkamp/m4l-TriggerSeq/releases/download/v2/TriggerSeq-v2.amxd) - Mono / Poly mode, Tie attribute, Presets.
 - 2025-03-20 [v1](https://github.com/zsteinkamp/m4l-TriggerSeq/releases/download/v1/TriggerSeq-v1.amxd) - Initial Release.
 
