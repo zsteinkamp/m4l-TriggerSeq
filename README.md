@@ -36,6 +36,7 @@ Store 16 presets and and recall them with a parameter knob, enabling a different
 
 ## Changelog
 
+- 2025-10-01 [v6](https://github.com/zsteinkamp/m4l-TriggerSeq/releases/download/v6/TriggerSeq-v6.amxd) - Update checker; Improve help.
 - 2025-03-29 [v4](https://github.com/zsteinkamp/m4l-TriggerSeq/releases/download/v4/TriggerSeq-v4.amxd) - Fixed a bad bug in preset recall; Polish.
 - 2025-03-23 [v3](https://github.com/zsteinkamp/m4l-TriggerSeq/releases/download/v3/TriggerSeq-v3.amxd) - Added Hold mode; Extended Swing to +/- 95%.
 - 2025-03-22 [v2](https://github.com/zsteinkamp/m4l-TriggerSeq/releases/download/v2/TriggerSeq-v2.amxd) - Mono / Poly mode, Tie attribute, Presets.
